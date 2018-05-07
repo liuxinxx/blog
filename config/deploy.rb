@@ -9,10 +9,10 @@ require 'mina/git'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :application_name, 'foobar'
-set :domain, 'foobar.com'
-set :deploy_to, '/var/www/foobar.com'
-set :repository, 'git://...'
+set :application_name, 'blog'
+set :domain, 'deploy@115.159.212.160'
+set :deploy_to, '/home/deploy/blog'
+set :repository, 'https://github.com/myvary/blog.git'
 set :branch, 'master'
 
 # Optional settings:
@@ -43,8 +43,11 @@ task :setup do
   # command %{rbenv install 2.3.0 --skip-existing}
 end
 
+task :console => :environment do
+end
+
 desc "Deploys the current version to the server."
-task :deploy do
+task :deploy  do
   # uncomment this line to make sure you pushed your local branch to the remote origin
   # invoke :'git:ensure_pushed'
   deploy do
