@@ -44,6 +44,10 @@ task :setup do
 end
 
 task :console => :environment do
+  set :execution_mode, :exec
+  in_path fetch(:current_path).to_s do
+    command %{#{fetch(:rails)} console}
+  end
 end
 
 desc "Deploys the current version to the server."
