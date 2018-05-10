@@ -63,6 +63,6 @@ server '23.106.136.112', user: 'deploy', roles: %w{app db web}
   set :ssh_options, {
     keys: %w(/home/deploy/.ssh/id_rsa),
 #    forward_agent: false,
-    # port: 28246
+    	port: 29736
 #    auth_methods: %w(password)
   }
