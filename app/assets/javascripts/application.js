@@ -18,7 +18,7 @@ function initCheck(){
   if(Browser.isFirefox || Browser.isChrome){
     App.initWeb3();
   }else{
-    console.log(("You can only play Million Block on a desktop browser like Chrome or Firefox.");
+    console.log("You can only play Million Block on a desktop browser like Chrome or Firefox.");
   }
 }
 App = {
@@ -30,26 +30,25 @@ App = {
 
     switch (network) {
       case "1":
-      $('#description').text("This is mainnet.");
+      console.log("This is mainnet.");
       break
       case "2":
-      $('#description').text("This is the deprecated Morden test network.");
+      console.log("This is the deprecated Morden test network.");
       break
       case "3":
-      $('#description').text("This is the ropsten test network.");
+      console.log("This is the ropsten test network.");
       break
       case "4":
+      console.log("This is the Rinkeby test network.");
       return App.initContract();
-      $('#description').text("This is the Rinkeby test network.");
       break
       case "42":
-      $('#description').text("This is the Kovan test network.");
+      console.log("This is the Kovan test network.");
       break
       default:
-      $('#description').text("This is an unknown network.");
+      console.log("This is an unknown network.");
     }
-    $('#title').text("Oops, you’re on the wrong network, please choose the Rinkeby test network.");
-    $('#loginForm').hide();
+    console.log("Oops, you’re on the wrong network, please choose the Rinkeby test network.");
 
   },
 
