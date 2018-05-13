@@ -16,7 +16,7 @@ class ArticleController < ApplicationController
     if params[:user].present?
       Rails.logger.info "login user ==== #{params[:user]}"
       user = User.where(address: params[:user].to_s)
-      Rails.logger.info "user ? ==#{user}"
+      Rails.logger.info "user ? ==#{user.count}"
       if user.count > 0
         if @current_user.present?
           if @current_user.address == params[:user].to_s
