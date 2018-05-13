@@ -73,7 +73,7 @@ App = {
         if (data.result == 1){
           alert(data.message);
         }else{
-          window.location.href = "signin";
+          console.log("This user is not an administrator!");
         }
       }
     });
