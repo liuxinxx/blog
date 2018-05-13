@@ -71,7 +71,7 @@ App = {
       dataType: "json",
       success: function(data){
         if (data.result == 1){
-          alert(data.message);
+          console.log(data.message);
         }else{
           console.log("This user is not an administrator!");
         }

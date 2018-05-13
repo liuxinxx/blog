@@ -17,12 +17,12 @@ class ArticleController < ApplicationController
       if User.where(address: params[:user].to_s).count > 0
         if @current_user.present?
           if @current_user.address == params[:user].to_s
-            render json:{'message'=>'ok'}
+            render json:{'message'=>'ok',"result" => 1}
             # redirect_to blocks_url
           else
             log_out
             log_in User.where(address: params[:user].to_s).first
-            render json:{'message'=>'ok'}
+            render json:{'message'=>'ok',"result" => 1}
             # redirect_to blocks_url
           end
         else
