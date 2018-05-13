@@ -18,9 +18,7 @@ function initCheck(){
   if(Browser.isFirefox || Browser.isChrome){
     App.initWeb3();
   }else{
-    $('#title').text("What's this?!");
-    $('#description').text("You can only play Million Block on a desktop browser like Chrome or Firefox.");
-    $('#loginForm').hide();
+    console.log(("You can only play Million Block on a desktop browser like Chrome or Firefox.");
   }
 }
 App = {
@@ -60,9 +58,7 @@ App = {
       App.web3Provider = web3.currentProvider;
       web3 = new Web3(web3.currentProvider);
     } else {
-      $('#title').text("What's this?!");
-      $('#description').text("You’ll need a safe place to store all of your adorable Million Block! Please install MetaMask");
-      $('#loginForm').hide();
+      console.log("You’ll need a safe place to store all of your adorable Million Block! Please install MetaMask");
       App.web3Provider = new web3.providers.HttpProvider('http://localhost:8545');
       web3 = new Web3(App.web3Provider);
     }
@@ -84,6 +80,10 @@ App = {
     });
   },
   initUser: function() {
-    App.login(web3.eth.accounts[0]);
+    if (web3.eth.accounts[0] == undefined){
+      console.log("Your MetaMask is locked");
+    }else{
+      App.login(web3.eth.accounts[0]);
+    };
   }
 }
