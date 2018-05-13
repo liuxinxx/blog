@@ -38,7 +38,7 @@ class ArticleController < ApplicationController
           format.html
           format.js {}
           format.json {
-            render json: {'message'=>'error'+,result:0}
+            render json: {'message'=>'error',result:0}
           }
         end
       end
