@@ -73,7 +73,7 @@ App = {
         if (data.result == 1){
           console.log(data.message);
         }else{
-          console.log("This user is not an administrator!");
+          console.log("This user is not an administrator!"+data.message);
         }
       }
     });

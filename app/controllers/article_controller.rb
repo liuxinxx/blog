@@ -14,19 +14,22 @@ class ArticleController < ApplicationController
 
   def checkUser
     if params[:user].present?
-      if User.where(address: params[:user].to_s).count > 0
+      Rails.logger.info "login user ==== #{params[:user]}"
+      user = User.where(address: params[:user].to_s)
+      Rails.logger.info "user ? ==#{user}"
+      if user.count > 0
         if @current_user.present?
           if @current_user.address == params[:user].to_s
             render json:{'message'=>'ok',"result" => 1}
             # redirect_to blocks_url
           else
             log_out
-            log_in User.where(address: params[:user].to_s).first
+            log_in user.first
             render json:{'message'=>'ok',"result" => 1}
             # redirect_to blocks_url
           end
         else
-          log_in User.where(address: params[:user].to_s).first
+          log_in user.first
           render json:{'message'=>'Login successful!',"result" => 1}
           # redirect_to blocks_url
         end
@@ -35,7 +38,7 @@ class ArticleController < ApplicationController
           format.html
           format.js {}
           format.json {
-            render json: {result:0}
+            render json: {'message'=>'error'+,result:0}
           }
         end
       end
