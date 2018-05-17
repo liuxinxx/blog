@@ -67,7 +67,7 @@ App = {
   login: function(ads){
     console.log(ads);
     $.ajax({
-      url: "check?user="+ads,
+      url: "/check?user="+ads,
       dataType: "json",
       success: function(data){
         if (data.result == 1){
