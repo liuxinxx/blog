@@ -36,6 +36,12 @@ gem 'capistrano'
 gem 'capistrano-bundler'
 gem 'capistrano-rails'
 gem 'capistrano-rbenv'
+
+gem 'simple_form'
+gem "kaminari", github: "amatsuda/kaminari"
+##markdown和文本高亮
+gem 'redcarpet'
+gem 'coderay'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
