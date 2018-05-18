@@ -1,13 +1,23 @@
 class Admin::ArticlesController < Admin::BaseController
+  before_action :set_article, only: [:show, :edit, :destroy,:update]
   def index
     @articles = Article.all
   end
 
   def show
+
+  end
+
+  def update
+    @article.update(raticles_params)
+    redirect_to admin_article_url(params[:id]),notice: "文章更新成功！"
+  end
+
+  def edit
   end
 
   def destroy
-    Article.destroy(params[:id])
+    @article.destroy
     redirect_to admin_articles_url,notice: "文章删除成功！"
   end
 
@@ -35,5 +45,9 @@ class Admin::ArticlesController < Admin::BaseController
   private
   def raticles_params
     params.require(:article).permit(:title,:content,:tag)
+  end
+
+  def set_article
+    @article = Article.find(params[:id])
   end
 end

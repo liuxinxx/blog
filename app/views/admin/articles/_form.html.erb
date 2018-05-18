@@ -1,0 +1,16 @@
+<div  class="container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <%= simple_form_for([:admin, @article]) do |f| %>
+      <%= f.input :title ,label: '标题'%>
+      <%= f.label "正文"%>
+      <%= f.text_area :content,rows:30,class:'form-control'%>
+      <span class="hint">支持markdown语法</span>
+
+      <%= f.input :tag,placeholder: '多个标签用逗号隔开',label:'标签'%>
+
+      <%= f.submit "保存",class:' btn btn-primary col-md-2'%>
+      <% end%>
+    </div>
+  </div>
+</div>
