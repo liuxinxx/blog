@@ -1,18 +1,19 @@
-<div  align="center">
-  <h1 class="post-title"><%= @article.title%></h1>
-  <span class="author">作者：<%=@article.user.nickname%></span> •
-  <time class="post-date"><%=@article.created_at.strftime("%Y年%m月%d日 %H:%M")%></time>
-  标签：<%tags = @article.tag.split(',')%>
-  <%if tags.size > 0%>
-  <%tags.each do |tag| %>
-  <span class="badge"><%=tag%></span>
-  <%end%>
-  <%else%>
-  <span class="badge">无</span>
-  <%end%>
+<div class="container">
+  <div class="panel" style="padding: 25px;">
+    <div  align="center">
+      <h1 class="post-title"><%= @article.title%></h1>
+      <i class="fa fa-calendar" aria-hidden="true"></i>
+      <span><%=@article.created_at.strftime("%Y年%m月%d日 %H:%M")%></span>
+      <span><%tags = @article.tag.split(',')%></span>
+      <%if tags.size > 0%>
+      <%tags.each do |tag| %>
+      <span class="badge badge-info"><%=tag%></span>
+      <%end%>
+      <%else%>
+      <span class="badge">无</span>
+      <%end%>
+    </div>
+    <hr>
+    <%=markdown @article.content%>
+  </div>
 </div>
-<hr>
-<div class="card border-secondary">
-  <%=markdown(@article.content)%>
-</div>
-

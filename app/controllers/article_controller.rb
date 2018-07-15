@@ -1,11 +1,11 @@
 class ArticleController < ApplicationController
   include SessionsHelper
   def index
-    @articles = Article.all
+    @articles = Article.all.page(params[:page]).per(2)
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
 
   def checkUser
