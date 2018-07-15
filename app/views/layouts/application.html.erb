@@ -7,14 +7,18 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
+<body>
+  <div id="mainContent">
+    <div class="container">
 
-<body style="background-image: url(https://www.toptal.com/designers/subtlepatterns/patterns/swirl_pattern.png);">
-  <%= render 'shared/header' %>
-  <div class="container">
-    <div class="row">
-      <%= yield %>
+      <%= render 'shared/header' %>
+      <div class="layout" id="layout">
+        <div class="row">
+          <%= yield %>
+        </div>
+        <%= render 'shared/footer' %>
+      </div>
     </div>
   </div>
-  <%= render 'shared/footer' %>
 </body>
 </html>

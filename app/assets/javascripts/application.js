@@ -1,23 +1,23 @@
-//= require jquery3
-//= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
-//= require popper
-//= require bootstrap-sprockets
+//= require bootstrap
 //= require_tree .
-var Browser=new Object();
-Browser.isMozilla=(typeof document.implementation!='undefined')&&(typeof document.implementation.createDocument!='undefined')&&(typeof HTMLDocument!='undefined');
-Browser.isIE=window.ActiveXObject ? true : false;
-Browser.isFirefox=(navigator.userAgent.toLowerCase().indexOf("firefox")!=-1);
-Browser.isSafari=(navigator.userAgent.toLowerCase().indexOf("safari")!=-1);
-Browser.isOpera=(navigator.userAgent.toLowerCase().indexOf("opera")!=-1);
+var Browser = new Object();
+Browser.isMozilla = (typeof document.implementation != 'undefined') && (typeof document.implementation.createDocument != 'undefined') && (typeof HTMLDocument != 'undefined');
+Browser.isIE = window.ActiveXObject ? true : false;
+Browser.isFirefox = (navigator.userAgent.toLowerCase().indexOf("firefox") != -1);
+Browser.isSafari = (navigator.userAgent.toLowerCase().indexOf("safari") != -1);
+Browser.isOpera = (navigator.userAgent.toLowerCase().indexOf("opera") != -1);
 Browser.isChrome = (navigator.userAgent.indexOf("Chrome") > -1);
-$(document).on("turbolinks:load", function(){
+$(document).on("turbolinks:load", function() {
   App.initUser();
 })
-function initCheck(){
-  if(Browser.isFirefox || Browser.isChrome){
+
+function initCheck() {
+  if (Browser.isFirefox || Browser.isChrome) {
     App.initWeb3();
-  }else{
+  } else {
     console.log("You can only play Million Block on a desktop browser like Chrome or Firefox.");
   }
 }
@@ -25,28 +25,28 @@ App = {
   web3Provider: null,
   contracts: {},
 
-  checkNetwork: function(){
+  checkNetwork: function() {
     var network = web3.version.network
 
     switch (network) {
       case "1":
-      console.log("This is mainnet.");
-      break
+        console.log("This is mainnet.");
+        break
       case "2":
-      console.log("This is the deprecated Morden test network.");
-      break
+        console.log("This is the deprecated Morden test network.");
+        break
       case "3":
-      console.log("This is the ropsten test network.");
-      break
+        console.log("This is the ropsten test network.");
+        break
       case "4":
-      console.log("This is the Rinkeby test network.");
-      return App.initContract();
-      break
+        console.log("This is the Rinkeby test network.");
+        return App.initContract();
+        break
       case "42":
-      console.log("This is the Kovan test network.");
-      break
+        console.log("This is the Kovan test network.");
+        break
       default:
-      console.log("This is an unknown network.");
+        console.log("This is an unknown network.");
     }
     console.log("Oops, you’re on the wrong network, please choose the Rinkeby test network.");
 
@@ -64,24 +64,24 @@ App = {
     return App.checkNetwork();
   },
 
-  login: function(ads){
+  login: function(ads) {
     console.log(ads);
     $.ajax({
-      url: "check?user="+ads,
+      url: "/check?user=" + ads,
       dataType: "json",
-      success: function(data){
-        if (data.result == 1){
+      success: function(data) {
+        if (data.result == 1) {
           console.log(data.message);
-        }else{
-          console.log("This user is not an administrator!"+data.message);
+        } else {
+          console.log("This user is not an administrator!" + data.message);
         }
       }
     });
   },
   initUser: function() {
-    if (web3.eth.accounts[0] == undefined){
+    if (web3.eth.accounts[0] == undefined) {
       console.log("Your MetaMask is locked");
-    }else{
+    } else {
       App.login(web3.eth.accounts[0]);
     };
   }

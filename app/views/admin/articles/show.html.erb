@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="card" style="padding: 15px;">
+    <div class="post-head" align="center">
+      <h1 class="post-title"><%= @article.title%></h1>
+      <span class="author">作者：<%=@article.user.nickname%></span> •
+      <time class="post-date"><%=@article.created_at.strftime("%Y年%m月%d日 %H:%M")%></time>
+      标签：<%tags = @article.tag.split(',')%>
+      <%if tags.size > 0%>
+      <%tags.each do |tag| %>
+      <span class="badge"><%=tag%></span>
+      <%end%>
+      <%else%>
+      <span class="badge">无</span>
+      <%end%>
+      <%unless !logged_in?%>
+      <%= link_to '编辑',edit_admin_article_url(@article.id)%>
+      <%= link_to '删除',{controller: 'articles',action:'destroy',id:@article.id}, method: :delete,data: { confirm: "你确定要删除该篇文章?\n #{@article.title}"}%>
+      <%end%>
+    </div>
+    <hr>
+    <%=markdown @article.content.to_s%>
+
+  </div>
+</div>
