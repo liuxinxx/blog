@@ -1,23 +1,21 @@
-<div class="col-lg-9" style="padding: 10px  0;">
-  <div class="col-lg-12">
-    <div class="panel" style="padding: 25px;">
-      <div class="panel-body">
-        <%@articles.each do |a|%>
-        <span style="font-size: 20px">
-          <%= link_to a.title,article_path(a) %>
-        </span>
-        <span style="color: #666;">
-          <i class="fa fa-calendar" aria-hidden="true"></i>
-          <%=a.created_at.strftime("%Y-%m-%d %H:%M")%>
-        </span>
-        <br>
-        <br>
-        <%end%>
-      </div>
-      <%= paginate @articles %>
+<div class="col-md-9">
+  <div class="panel">
+    <div class="panel-body">
+      <%@articles.each do |a|%>
+      <span style="font-size: 20px">
+        <%= link_to a.title,article_path(a) %>
+      </span>
+      <span style="color: #666;">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        <%=a.created_at.strftime("%Y-%m-%d %H:%M")%>
+      </span>
+      <br>
+      <br>
+      <%end%>
     </div>
+    <%= paginate @articles %>
   </div>
 </div>
-<div class="col-lg-3" style="padding: 10px 10px 0 0;">
+<div class="col-md-3">
   <%= render 'shared/sidebar' %>
 </div>
