@@ -34,4 +34,24 @@ class ArticleController < ApplicationController
       end
     end
   end
+
+  def search
+    pp params
+    validate_search_key
+    if @query_string.present?
+      search_result = Article.ransack(@search_criteria).result(:distinct => true)
+      @articles = search_result.page(params[:page]).per(10)
+    end
+  end
+
+  protected
+
+    def validate_search_key
+      @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
+      @search_criteria = search_criteria(@query_string)
+    end
+
+    def search_criteria(query_string)
+      { title_or_content_cont: query_string }
+    end
 end

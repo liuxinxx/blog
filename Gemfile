@@ -32,6 +32,10 @@ gem 'coderay'
 gem 'grape'
 gem 'grape-swagger'
 gem 'grape-swagger-rails'
+## 搜索
+gem 'ransack'
+gem 'seo_helper'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 

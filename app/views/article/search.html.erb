@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="panel" style="padding: 25px;">
+    <div class="panel-body">
+      <% if @query_string.blank? %>
+      <h2 class="search-info-title">搜索信息不能为空，请输入关键字搜索</h2>
+      <% elsif @articles.blank?%>
+      <br>
+      <h2 class="search-info-title">亲，没有搜索到文章哦，要不换个关键词试试？</h2>
+      <% else %>
+      <div class='row'>
+        <div class="alert alert-info">
+          <h4>包含 <font color="red"><%= @query_string %></font> 的文章有<%= @articles.count %>条</h4>
+        </div>
+        <% @articles.each do |a| %>
+        <span style="font-size: 20px">
+          <%= link_to (render_highlight_content(a,@query_string).to_s.size == 0 ? a.title : render_highlight_content(a,@query_string)) ,article_path(a) %>
+        </span>
+        <span style="color: #666;">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <%=a.created_at.strftime("%Y-%m-%d %H:%M")%>
+        </span>
+        <br>
+        <% end %>
+      </div>
+      <% end %>
+      <%= paginate @articles %>
+    </div>
+  </div>
+</div>

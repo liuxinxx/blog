@@ -4,7 +4,11 @@ Rails.application.routes.draw do
     end
     root 'articles#index'
   end
-  resources :article
+  resources :article do
+    collection do
+      get :search
+    end
+  end
   get 'check' => 'article#checkUser'
   root 'article#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
