@@ -1,7 +1,7 @@
 class ArticleController < ApplicationController
   include SessionsHelper
   def index
-    @articles = Article.all.page(params[:page]).per(2)
+    @articles = Article.all.page(params[:page]).per(10)
   end
 
   def show
