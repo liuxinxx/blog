@@ -1,11 +1,12 @@
 class ArticleController < ApplicationController
   include SessionsHelper
   def index
-    @articles = Article.all.page(params[:page]).per(10)
+    @articles = Article.all.order(id: :desc).page(params[:page]).per(10)
   end
 
   def show
     @article = Article.friendly.find(params[:id])
+    @article.update!(read: @article.read+=1)
   end
 
   def checkUser
@@ -36,7 +37,6 @@ class ArticleController < ApplicationController
   end
 
   def search
-    pp params
     validate_search_key
     if @query_string.present?
       search_result = Article.ransack(@search_criteria).result(:distinct => true)

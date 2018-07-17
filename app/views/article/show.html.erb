@@ -1,9 +1,14 @@
 <div class="panel" style="margin: 15px;">
   <div  align="center">
     <h1 class="post-title"><%= @article.title%></h1>
-    <i class="fa fa-calendar" aria-hidden="true"></i>
+    <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
     <span><%=@article.created_at.strftime("%Y年%m月%d日 %H:%M")%></span>
     <span><%tags = @article.tag.split(',')%></span>
+    <span style="color: #666;">
+      <img id = 'imgRead' src="<%=asset_path('read.svg')%>">
+      <%=@article.read%>
+    </span>
+    <br>
     <%if tags.size > 0%>
     <%tags.each do |tag| %>
     <span class="badge badge-info"><%=tag%></span>
