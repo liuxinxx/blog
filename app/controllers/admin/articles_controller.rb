@@ -1,15 +1,11 @@
 class Admin::ArticlesController < Admin::BaseController
-  before_action :set_article, only: [ :edit, :destroy,:update]
+  before_action :set_article, only: [:show, :edit, :destroy,:update]
   def index
     @articles = Article.all
   end
 
   def show
-    p '==================='
-    p @article
-    p '==================='
 
-    @article.update!(read: @article.read+=1)
   end
 
   def update

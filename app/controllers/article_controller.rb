@@ -1,11 +1,12 @@
 class ArticleController < ApplicationController
   include SessionsHelper
+  before_action :set_article, only: [:show]
+
   def index
     @articles = Article.all.order(id: :desc).page(params[:page]).per(10)
   end
 
   def show
-    @article = Article.friendly.find(params[:id])
     @article.update!(read: @article.read+=1)
   end
 
@@ -53,5 +54,9 @@ class ArticleController < ApplicationController
 
     def search_criteria(query_string)
       { title_or_content_cont: query_string }
+    end
+
+    def set_article
+      @article = Article.friendly.find(params[:id])
     end
 end
