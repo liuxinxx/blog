@@ -17,6 +17,7 @@
  @import "bootstrap";
  @import "font-awesome-sprockets";
  @import "font-awesome";
+
  html,
  body {
   width: 100%;
@@ -62,4 +63,7 @@ html::-webkit-scrollbar{width:0px}
 #imgRead{
   width: 20px;
   height: 20px;
+}
+pre{
+  padding: 0;
 }
