@@ -4,10 +4,10 @@
       <h1 class="post-title"><%= @article.title%></h1>
       <span class="author">作者：<%=@article.user.nickname%></span> •
       <time class="post-date"><%=@article.created_at.strftime("%Y年%m月%d日 %H:%M")%></time>
-      标签：<%tags = @article.tag.split(',')%>
+      标签：<%tags = @article.tags%>
       <%if tags.size > 0%>
       <%tags.each do |tag| %>
-      <span class="badge"><%=tag%></span>
+      <span class="badge"><%=tag.tag_name%></span>
       <%end%>
       <%else%>
       <span class="badge">无</span>

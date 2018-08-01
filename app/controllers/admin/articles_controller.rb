@@ -22,15 +22,24 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
   def create
-    @article = Article.new(raticles_params)
+    a = {
+      "title" => raticles_params[:title],
+      "content" => raticles_params[:content]
+    }
+    @article = Article.new(a)
     begin
       @article.transaction do
         @article.user_id = current_user.id
         @article.read = 1
-        if @article.save
-          redirect_to admin_article_url(@article.id) ,notice: "文章创建成功！"
-        else
-          redirect_to new_admin_article_path ,alert: "发表失败!" << @articles.errors.full_messages.to_s
+        ActiveRecord::Base.transaction do
+          if @article.save
+            raticles_params[:tags].split(',').each do |tag|
+              @article.tags << Tag.find_or_create_by(tag_name: tag)
+            end
+            redirect_to admin_article_url(@article.id) ,notice: "文章创建成功！"
+          else
+            redirect_to new_admin_article_path ,alert: "发表失败!" << @articles.errors.full_messages.to_s
+          end
         end
       end
     rescue Exception => e
@@ -43,11 +52,11 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
   private
-  def raticles_params
-    params.require(:article).permit(:title,:content,:tag)
-  end
+    def raticles_params
+      params.require(:article).permit(:title,:content,:tags)
+    end
 
-  def set_article
-    @article = Article.friendly.find(params[:id])
-  end
+    def set_article
+      @article = Article.friendly.find(params[:id])
+    end
 end

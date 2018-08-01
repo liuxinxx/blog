@@ -2,9 +2,7 @@
   <div class="panel">
     <div class="panel-body">
       <%@articles.each do |a|%>
-      <span style="font-size: 25px">
-        <%= link_to a.title,article_path(a) %>
-      </span>
+      <span style="font-size: 22px;"><%= link_to a.title,article_path(a) %></span>
       <span style="color: #777;">
         <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
         <%=a.created_at.strftime("%Y-%m-%d %H:%M")%>
@@ -15,7 +13,9 @@
       <br>
       <%end%>
     </div>
-    <%= paginate @articles %>
+    <div  align="center">
+      <%= paginate @articles %>
+    </div>
   </div>
 </div>
 <div class="col-md-3">

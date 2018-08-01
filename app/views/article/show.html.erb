@@ -1,24 +1,25 @@
 <div class="panel" style="margin: 15px;">
   <div  align="center">
-    <h1 class="post-title"><%= @article.title%></h1>
+    <h2 class="post-title"><%= @article.title%></h2>
     <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
     <span><%=@article.created_at.strftime("%Y年%m月%d日 %H:%M")%></span>
-    <span><%tags = @article.tag.split(',')%></span>
-    <span style="color: #666;">
+    <span><%tags = @article.tags %></span>
+    <span>
       <img id = 'imgRead' src="<%=asset_path('read.svg')%>">
       <%=@article.read%>
     </span>
     <br>
     <%if tags.size > 0%>
     <%tags.each do |tag| %>
-    <span class="badge badge-info"><%=tag%></span>
+    <span class="label label-info"><%=tag.tag_name%></span>
     <%end%>
     <%else%>
-    <span class="badge">无</span>
+    <span class="label label-default">无</span>
     <%end%>
   </div>
   <hr>
   <div class="panel-body">
-    <%=markdown @article.content%>
+    <div id="blog-content" data-content="<%= @article.content %>">
+    </div>
   </div>
 </div>
