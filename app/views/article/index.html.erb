@@ -2,15 +2,17 @@
   <div class="panel">
     <div class="panel-body">
       <%@articles.each do |a|%>
-      <span style="font-size: 22px;"><%= link_to a.title,article_path(a) %></span>
-      <span style="color: #777;">
-        <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
-        <%=a.created_at.strftime("%Y-%m-%d %H:%M")%>
-        <img id = 'imgRead' src="<%=asset_path('read.svg')%>">
-        <%=a.read%>
-      </span>
-      <br>
-      <br>
+      <p>
+        <span style="font-size: 22px;"><%= link_to a.title,article_path(a) ,class:'articleTitle'%>
+        </span>
+        <span style="color: #777;">
+          <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
+          <span style="font-size: 12px;"><%=a.created_at.strftime("%m-%d %H:%M")%>
+            <img id = 'imgRead' src="<%=asset_path('read.svg')%>">
+            <%=a.read%>
+          </span>
+        </span>
+      </p>
       <%end%>
     </div>
     <div  align="center">

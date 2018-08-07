@@ -6,7 +6,7 @@ module V1
         requires :title, type: String
       end
       get 'search' do
-        list = Article.query(params[:title])
+        list = Article.to_query(params[:title])
         {
           result: 1,
           message: list

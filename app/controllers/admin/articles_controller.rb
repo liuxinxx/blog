@@ -9,11 +9,28 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
   def update
-    @article.update(raticles_params)
+    @article.update(title:raticles_params[:title],content:raticles_params[:content])
+    @article.tags.delete_all
+    raticles_params[:tags].split(',').each do |t|
+      tag = Tag.find_by(tag_name: t)
+      if tag.present? && TagArticleRelationship.find_by(article_id: @article.id,tag_id:tag.id)
+        p '已存在'
+      else
+        @article.tags << Tag.find_or_create_by(tag_name: t)
+      end
+    end
     redirect_to admin_article_url(params[:id]),notice: "文章更新成功！"
   end
 
   def edit
+    @tags = ''
+    if @article.tags.present?
+      @article.tags.each do|t|
+        @tags+=t.tag_name+','
+      end
+      pp @article.tags
+    end
+
   end
 
   def destroy
@@ -33,8 +50,14 @@ class Admin::ArticlesController < Admin::BaseController
         @article.read = 1
         ActiveRecord::Base.transaction do
           if @article.save
-            raticles_params[:tags].split(',').each do |tag|
-              @article.tags << Tag.find_or_create_by(tag_name: tag)
+            raticles_params[:tags].split(',').each do |t|
+              tag = Tag.find_by(tag_name: t)
+              p tag
+              if tag.present? && TagArticleRelationship.find_by(article_id: @article.id,tag_id:tag.id)
+                p '已存在'
+              else
+                @article.tags << Tag.find_or_create_by(tag_name: t)
+              end
             end
             redirect_to admin_article_url(@article.id) ,notice: "文章创建成功！"
           else
@@ -52,11 +75,15 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
   private
-    def raticles_params
-      params.require(:article).permit(:title,:content,:tags)
-    end
+  def raticles_params
+    params.require(:article).permit(:title,:content,:tags)
+  end
 
-    def set_article
-      @article = Article.friendly.find(params[:id])
-    end
+  def set_article
+    @article = Article.friendly.find(params[:id])
+  end
+
+  def create_raticle
+
+  end
 end

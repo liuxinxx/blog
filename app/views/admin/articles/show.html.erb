@@ -18,7 +18,8 @@
       <%end%>
     </div>
     <hr>
-    <%=markdown @article.content.to_s%>
+    <div id="blog-content" data-content="<%= @article.content %>">
+    </div>
 
   </div>
 </div>
