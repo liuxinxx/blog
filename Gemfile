@@ -1,4 +1,8 @@
-source 'https://rubygems.org'
+if ENV['TRAVIS']
+  source 'https://rubygems.org'
+else
+  source 'https://gems.ruby-china.org'
+end
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -36,6 +40,7 @@ gem 'grape-swagger-rails'
 gem 'ransack'
 gem 'seo_helper'
 
+gem 'bootstrap-tagsinput-rails'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 

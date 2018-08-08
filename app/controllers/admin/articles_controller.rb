@@ -28,7 +28,6 @@ class Admin::ArticlesController < Admin::BaseController
       @article.tags.each do|t|
         @tags+=t.tag_name+','
       end
-      pp @article.tags
     end
 
   end

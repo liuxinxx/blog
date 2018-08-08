@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery.tagsinput
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
@@ -12,6 +13,7 @@ Browser.isOpera = (navigator.userAgent.toLowerCase().indexOf("opera") != -1);
 Browser.isChrome = (navigator.userAgent.indexOf("Chrome") > -1);
 $(document).on("turbolinks:load", function() {
   App.initUser();
+  $('#article_tags').tagsInput();
   content = $('#blog-content').data('content');
   if (content) $('#blog-content').append(marked(content));
   $('pre code').each(function(i, block) {
