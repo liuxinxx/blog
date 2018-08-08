@@ -2,11 +2,11 @@
   <div class="panel-body text-info">
     <h5 class="panel-title">标签</h5>
     <p class="panel-text">
-    	<% @tags.each do |t|%>
-    	<div class="tags">
-    		<%= link_to t.tag_name , root_path%>
-    		</div>
-    	<%end%>
+      <% @tags.each do |t|%>
+      <div class="tags">
+        <a href="<%=tag_index_path(:tag_name => t.tag_name)%>"><%=t.tag_name%> <span class="badge"><%=t.articles.size.to_s%></span></a>
+      </div>
+      <%end%>
     </p>
   </div>
 </div>

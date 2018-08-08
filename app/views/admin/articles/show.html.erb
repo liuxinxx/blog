@@ -7,7 +7,7 @@
       标签：<%tags = @article.tags%>
       <%if tags.size > 0%>
       <%tags.each do |tag| %>
-      <span class="badge"><%=tag.tag_name%></span>
+      <span class="label label-info" ><%=tag.tag_name%></span>
       <%end%>
       <%else%>
       <span class="badge">无</span>

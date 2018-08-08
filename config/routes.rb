@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  resources :tag do
+    collection do
+      get :tag_name
+    end
+  end
   namespace :admin do
     resources :articles do
     end

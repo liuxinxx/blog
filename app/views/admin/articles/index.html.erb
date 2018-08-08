@@ -8,21 +8,26 @@
         <th>标签</th>
         <th>浏览量</th>
         <th>查看详情</th>
+        <th>编辑</th>
         <th>删除</th>
       </tr>
     </thead>
-
     <tbody>
       <% @articles.each do |a| %>
       <tr>
         <td><%= a.id %></td>
         <td><%= a.title%></td>
         <td><%= a.created_at.strftime("%Y-%m-%d %H:%M") %></td>
-        <td><%= a.tag %></td>
+        <td>
+          <%a.tags.each do |t| %>
+          <span class="label label-info"><%=t.tag_name%></span>
+          <%end%>
+        </td>
         <td><%= a.read%></td>
         <td>
-          <%= link_to 'show',admin_article_path(a), class:'btn btn-info btn-sm'%>
+          <%= link_to 'show',admin_article_path(a), class:'btn btn-success btn-sm'%>
         </td>
+        <td><%= link_to '编辑',edit_admin_article_url(a.id), class:'btn btn-info btn-sm'%></td>
         <td><%= link_to 'destroy',{controller: 'articles',action:'destroy',id:a.id}, method: :delete,data: { confirm: '你确定要删除该篇文章?' }, class:'btn btn-danger btn-sm'%></td>
       </tr>
       <% end %>
