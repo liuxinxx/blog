@@ -1,7 +1,7 @@
 class Admin::ArticlesController < Admin::BaseController
   before_action :set_article, only: [:show, :edit, :destroy,:update]
   def index
-    @articles = Article.all
+    @articles = Article.all.order(id: :desc)
   end
 
   def show
