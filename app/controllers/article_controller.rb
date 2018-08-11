@@ -4,7 +4,7 @@ class ArticleController < ApplicationController
 
   def index
     @articles = Article.all.order(id: :desc).page(params[:page]).per(15)
-    @tags = Tag.all
+    @tags = Tag.all.order(id: :desc)
   end
 
   def show

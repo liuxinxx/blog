@@ -1,15 +1,4 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require jquery.tagsinput
  *= require_self
@@ -27,7 +16,7 @@
   min-height: 100%;
   background: #fcfcfa;
   color: #5d5d5d;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
 }
 html {
   -ms-overflow-style:none;
@@ -35,6 +24,32 @@ html {
 }
 html::-webkit-scrollbar{width:0px}
 
+$gray-medium-light: #eaeaea;
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  box-sizing:border-box;
+}
+
+h1,h2,h3,h4,h5,h6{ line-height: 1;
+}
+h1{
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+}
+h2{
+  font-size: 2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  font-weight: normal;
+  color: #777;
+}
+p{
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
 #mainContent,#adminMainContent{
   overflow : hidden;
   min-height: 100%;
@@ -67,6 +82,10 @@ html::-webkit-scrollbar{width:0px}
   height: 15px;
   margin-top: -4px;
 }
+#imgHome{
+  width: 20px;
+  height: 20px;
+}
 pre{
   padding: 0;
 }
@@ -74,7 +93,7 @@ pre{
   margin: 3px;
   padding: 2px;
   border-radius: 6px;
-  border: 1.4px solid #ddd;
+  border: 0.115em solid #ddd;
   line-height: 1.2em;
   font-weight: 500;
   text-align: center;
@@ -83,6 +102,10 @@ pre{
 }
 
 a:link { text-decoration: none;}
-.articleTitle{
-  text-decoration:none;
+
+.listRrticleTitle{
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  font-weight: normal;
 }

@@ -3,7 +3,7 @@
     <div class="panel-body">
       <%@articles.each do |a|%>
       <p>
-        <span style="font-size: 22px;"><%= link_to a.title,article_path(a) ,class:'articleTitle'%>
+        <span class="listRrticleTitle" ><%= link_to a.title,article_path(a) ,class:'listRrticleTitle'%>
         </span>
         <span style="color: #777;">
           <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
