@@ -11,7 +11,9 @@
     <br>
     <%if tags.size > 0%>
     <%tags.each do |tag| %>
-    <span class="label label-info"><%=tag.tag_name%></span>
+    <div class="tags">
+      <%= link_to tag.tag_name ,tag_index_path(:tag_name => tag.tag_name)%>
+    </div>
     <%end%>
     <%else%>
     <span class="label label-default">无</span>
