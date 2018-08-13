@@ -5,12 +5,12 @@
 
       <%= f.input :title ,label: '标题',input_html: { class: 'form-control'}%>
     </div>
-    <div class="form-inline sourceInfo">
-      <div class="input-group">
-        <%= f.input :source_title ,label: "来源标题", class:'form-control'%>
+    <div class="form-inline row sourceInfo">
+      <div class="col-md-5">
+        <%= f.input :source_title ,label: "来源标题", input_html: { class: 'form-control sourceInput'}%>
       </div>
-      <div class="input-group">
-        <%= f.input :source_url ,label: "来源url", class:'form-control'%>
+      <div class="col-md-7">
+        <%= f.input :source_url ,label: "来源url", input_html: { class: 'form-control sourceInput'}%>
       </div>
     </div>
     <%= f.label "正文"%>
