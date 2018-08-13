@@ -5,6 +5,17 @@
 
       <%= f.input :title ,label: '标题',input_html: { class: 'form-control'}%>
     </div>
+    <div class="form-inline sourceInfo">
+      <div class="input-group">
+        <%= f.input :source_title ,label: "来源标题", class:'form-control'%>
+      </div>
+      <div class="input-group">
+        <%= f.input :source_url ,label: "来源url", class:'form-control'%>
+      </div>
+      <div class="input-group">
+        <%= f.input :is_original,label: "是否原创",collection: {"原创" => true,"转发"=>false},as: :radio_buttons,class:'form-control'%>
+      </div>
+    </div>
     <%= f.label "正文"%>
     <%= f.text_area :content,rows:30,class: 'form-control'%>
     <span class="hint">支持markdown语法</span>
@@ -13,7 +24,6 @@
       <label class="string optional" for="article_tags">标签</label>
       <input data-role='tagsinput' class="string optional form-control" placeholder="多个标签用逗号隔开" type="text" value="<%=@tags%>" name="article[tags]" id="article_tags" >
     </div>
-
     <div style="margin-top: 30px;" align="center">
       <%= f.submit "保存",class:' btn btn-primary btn-lg ' ,style:'width:100%;'%>
     </div>

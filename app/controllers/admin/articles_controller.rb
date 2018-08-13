@@ -9,7 +9,13 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
   def update
-    @article.update(title:raticles_params[:title],content:raticles_params[:content])
+    @article.update(
+       title:raticles_params[:title],
+       content:raticles_params[:content],
+       source_title:raticles_params[:source_title],
+       source_url:raticles_params[:source_url],
+       is_original:raticles_params[:is_original]
+       )
     @article.tags.delete_all
     raticles_params[:tags].split(',').each do |t|
       tag = Tag.find_by(tag_name: t)
@@ -40,7 +46,10 @@ class Admin::ArticlesController < Admin::BaseController
   def create
     a = {
       "title" => raticles_params[:title],
-      "content" => raticles_params[:content]
+      "content" => raticles_params[:content],
+      "source_title"=> raticles_params[:source_title],
+      "source_url"=> raticles_params[:source_url],
+      "is_original"=> raticles_params[:is_original]
     }
     @article = Article.new(a)
     begin
@@ -75,7 +84,7 @@ class Admin::ArticlesController < Admin::BaseController
 
   private
   def raticles_params
-    params.require(:article).permit(:title,:content,:tags)
+    params.require(:article).permit(:title,:content,:tags,:source_title, :source_url, :is_original)
   end
 
   def set_article
