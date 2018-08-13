@@ -1,0 +1,43 @@
+<div class="panel" style="margin: 15px;">
+  <div  align="center">
+    <h2 class="post-title"><%= @article.title%></h2>
+    <div style="color: #aaa;">
+      <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
+      <span><%=@article.created_at.strftime("%m月%d日 %H:%M")%></span>
+      <span><%tags = @article.tags %></span>
+      <span>
+        <img id = 'imgRead' src="<%=asset_path('read.svg')%>">
+        <%=@article.read%>
+      </span>
+      文章来源:
+      <span class="<%= @article.is_original ? 'originalLabel':'forwardingLabel'%>">
+        <%if @article.is_original %>
+        <%= @article.source_title%>
+        <%else%>
+        <a href="<%= @article.source_url%>" style="color: #eee;" target="_blank" >
+          <%= @article.source_title%>
+        </a>
+        <%end%>
+      </span>
+      <%unless !logged_in?%>
+      <%= link_to '编辑',edit_admin_article_url(@article.id)%>
+      <%= link_to '删除',{controller: 'admin/articles',action:'destroy',id:@article.id}, method: :delete,data: { confirm: "你确定要删除该篇文章?\n #{@article.title}"}%>
+      <%end%>
+      <br>
+      <%if tags.size > 0%>
+      <%tags.each do |tag| %>
+      <div class="tags">
+        <%= link_to tag.tag_name ,tag_index_path(:tag_name => tag.tag_name)%>
+      </div>
+      <%end%>
+      <%else%>
+      <span class="label label-default">无</span>
+      <%end%>
+    </div>
+  </div>
+  <hr>
+  <div class="panel-body">
+    <div id="blog-content" data-content="<%= @article.content %>">
+    </div>
+  </div>
+</div>

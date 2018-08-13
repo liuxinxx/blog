@@ -1,5 +1,6 @@
 class Admin::ArticlesController < Admin::BaseController
   before_action :set_article, only: [:show, :edit, :destroy,:update]
+  before_action :set_article_is_is_original, only: [:new, :update]
   def index
     @articles = Article.all.order(id: :desc)
   end
@@ -14,9 +15,8 @@ class Admin::ArticlesController < Admin::BaseController
        content:raticles_params[:content],
        source_title:raticles_params[:source_title],
        source_url:raticles_params[:source_url],
-       is_original:raticles_params[:is_original]
+       is_original:@is_original
        )
-    @article.tags.delete_all
     raticles_params[:tags].split(',').each do |t|
       tag = Tag.find_by(tag_name: t)
       if tag.present? && TagArticleRelationship.find_by(article_id: @article.id,tag_id:tag.id)
@@ -49,7 +49,7 @@ class Admin::ArticlesController < Admin::BaseController
       "content" => raticles_params[:content],
       "source_title"=> raticles_params[:source_title],
       "source_url"=> raticles_params[:source_url],
-      "is_original"=> raticles_params[:is_original]
+      "is_original"=> @is_original
     }
     @article = Article.new(a)
     begin
@@ -84,14 +84,17 @@ class Admin::ArticlesController < Admin::BaseController
 
   private
   def raticles_params
-    params.require(:article).permit(:title,:content,:tags,:source_title, :source_url, :is_original)
+    params.require(:article).permit(:title,:content,:tags,:source_title, :source_url)
   end
 
   def set_article
     @article = Article.friendly.find(params[:id])
   end
 
-  def create_raticle
-
+  def set_article_is_is_original
+    @is_original = true
+    if raticles_params[:source_title]!="liuxin's blog" || raticles_params[:source_url].present?
+      @is_original = false
+    end
   end
 end

@@ -12,9 +12,6 @@
       <div class="input-group">
         <%= f.input :source_url ,label: "来源url", class:'form-control'%>
       </div>
-      <div class="input-group">
-        <%= f.input :is_original,label: "是否原创",collection: {"原创" => true,"转发"=>false},as: :radio_buttons,class:'form-control'%>
-      </div>
     </div>
     <%= f.label "正文"%>
     <%= f.text_area :content,rows:30,class: 'form-control'%>
