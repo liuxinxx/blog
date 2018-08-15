@@ -20,6 +20,7 @@ $(document).on("turbolinks:load", function() {
     hljs.highlightBlock(block);
   });
   $('table').addClass('table table-striped');
+  $('.articleImg').zoomify();
 })
 
 function initCheck() {

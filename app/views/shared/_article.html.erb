@@ -41,3 +41,16 @@
     </div>
   </div>
 </div>
+<style>
+.max{width:100%;height:auto;}
+.min{width:100px;height:auto;}
+</style>
+<script>
+  $(function(){
+    $('.articleImg').click(function(){
+
+      $(this).toggleClass('min');
+      $(this).toggleClass('max');
+    });
+  });
+</script>
