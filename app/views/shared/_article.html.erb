@@ -39,18 +39,12 @@
   <div class="panel-body">
     <div id="blog-content" data-content="<%= @article.content %>">
     </div>
+    <hr>
+    <div class="statement">
+      <h5><strong>声明：</strong>原创文章，欢迎转载，请以 <code>超链接</code> 的形式注明 作者、标题 和 原始出处。<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">"知识共享署名-非商业性使用-相同方式共享 2.5 中国大陆许可协议"</a></h5>
+      <h5><strong>标题：</strong><%= @article.title%>（自动实时更新） | <strong>作者：</strong><%= @article.user.nickname%></h5>
+      <h5><strong>地址：</strong><%= article_url(@article)%></h5>
+    </div>
   </div>
 </div>
 <style>
-.max{width:100%;height:auto;}
-.min{width:100px;height:auto;}
-</style>
-<script>
-  $(function(){
-    $('.articleImg').click(function(){
-
-      $(this).toggleClass('min');
-      $(this).toggleClass('max');
-    });
-  });
-</script>
