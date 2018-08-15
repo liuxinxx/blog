@@ -10,6 +10,8 @@ module Blog
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+    config.time_zone = "Beijing"
+    config.active_record.default_timezone = :local
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
     config.autoload_paths += [
       Rails.root.join('api')
