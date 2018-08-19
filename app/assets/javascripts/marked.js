@@ -698,9 +698,9 @@
   }),
   (i.prototype.image = function(e, t, n) {
     this.options.baseUrl && !g.test(e) && (e = u(this.options.baseUrl, e));
-        var r = '<img class="articleImg" src="' + e + '" alt="' + n + '"';
+    var r = '<div class="articleImgDiv" align="center" ><img class="articleImg" src="' + e + '" alt="' + n + '"';
     return (
-      t && (r += ' title="' + t + '"'), (r += this.options.xhtml ? '/>' : '>')
+      t && (r += ' title="' + t + '"'), (r += this.options.xhtml ? '/></div>' : '></div>')
     );
   }),
   (i.prototype.text = function(e) {

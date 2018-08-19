@@ -32,8 +32,12 @@ html::-webkit-scrollbar{width:0px}
   box-shadow: 0 20px 50px -10px #000;
   margin-bottom: 10px;
   margin-top: 10px;
-}
 
+}
+.articleImgDiv{
+  margin: 0;
+  padding: 0;
+}
 $gray-medium-light: #eaeaea;
 @mixin box_sizing {
   -moz-box-sizing: border-box;
