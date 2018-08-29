@@ -1,16 +1,4 @@
 module ApplicationHelper
-  class CodeRayify < Redcarpet::Render::HTML
-    def block_code(code, language)
-      language="c" if language=="c++"
-      language ||= :plaintext
-      begin
-        CodeRay.scan(code, language).div
-      rescue Exception => e
-        language="markdown"
-        retry
-      end
-    end
-  end
 
   def notice_message
     flash_messages = []
