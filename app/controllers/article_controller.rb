@@ -3,7 +3,7 @@ class ArticleController < ApplicationController
   before_action :set_article, only: [:show]
 
   def index
-    @articles = Article.all.order(id: :desc).page(params[:page]).per(20)
+    @articles = Article.all.order(id: :desc).page(params[:page]).per(10)
     @tags = Tag.all.includes(:articles).includes(:tag_article_relationships).order(id: :desc)
   end
 
