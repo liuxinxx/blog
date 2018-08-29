@@ -2,18 +2,22 @@
   <div class="panel">
     <div class="panel-body">
       <%@articles.each do |a|%>
-      <p>
-        <span class="listRrticleTitle" >
+      <div class="more" style="padding: 20px;margin: 20px 0 20px;border-radius: 8px;background-color: #eee;">
+        <h1 class="listRrticleTitle" align="center">
           <%= link_to a.title,article_path(a) ,class:'listRrticleTitle'%>
-        </span>
-        <span style="color: #777;">
-          <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
-          <span style="font-size: 12px;"><%=a.created_at.strftime("%m-%d %H:%M")%>
-            <img id = 'imgRead' src="<%=asset_path('read.svg')%>">
-            <%=a.read%>
+        </h1>
+        <div class="content" data-content='<%=a.content.split('<!--more-->')[0].gsub('##','####').gsub(/^#.*?\s+/,'#### ')%>' id="blog_<%=a.id%>"></div>
+        <div align="center">
+          <span style="color: #777;">
+            <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
+            <span style="font-size: 12px;"><%=a.created_at.strftime("%m-%d %H:%M")%>
+              <img id = 'imgRead' src="<%=asset_path('read.svg')%>">
+              <%=a.read%>
+            </span>
           </span>
-        </span>
-      </p>
+          <%= link_to '阅读更多...',article_path(a) ,class:'btn',style:"border:1px solid #999;"%>
+        </div>
+      </div>
       <%end%>
     </div>
     <div  align="center">
@@ -24,3 +28,11 @@
 <div class="col-md-3">
   <%= render 'shared/sidebar' %>
 </div>
+<script type="text/javascript">
+  var blog = $('.content')
+  var i;
+  for(i = 0;i<blog.size();i++){
+    var content = $('#'+blog[i].id).data('content')
+    $('#'+blog[i].id).append(marked(content));
+  }
+</script>

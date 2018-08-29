@@ -29,9 +29,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'simple_form'
 
 gem "kaminari"
-##markdown和文本高亮
-gem 'redcarpet'
-gem 'coderay'
+
 ## 构建api
 gem 'grape'
 gem 'grape-swagger'

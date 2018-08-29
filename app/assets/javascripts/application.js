@@ -4,23 +4,8 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
-var Browser = new Object();
-Browser.isMozilla = (typeof document.implementation != 'undefined') && (typeof document.implementation.createDocument != 'undefined') && (typeof HTMLDocument != 'undefined');
-Browser.isIE = window.ActiveXObject ? true : false;
-Browser.isFirefox = (navigator.userAgent.toLowerCase().indexOf("firefox") != -1);
-Browser.isSafari = (navigator.userAgent.toLowerCase().indexOf("safari") != -1);
-Browser.isOpera = (navigator.userAgent.toLowerCase().indexOf("opera") != -1);
-Browser.isChrome = (navigator.userAgent.indexOf("Chrome") > -1);
 $(document).on("turbolinks:load", function() {
   App.initUser();
-  $('#article_tags').tagsInput();
-  content = $('#blog-content').data('content');
-  if (content) $('#blog-content').append(marked(content));
-  $('pre code').each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
-  $('table').addClass('table table-striped');
-  $('.articleImg').zoomify();
 })
 
 function initCheck() {
