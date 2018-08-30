@@ -1,14 +1,13 @@
 class ArticleController < ApplicationController
   include SessionsHelper
   before_action :set_article, only: [:show]
+  before_action :set_tags, only: [:index,:show,:search]
 
   def index
-    @articles = Article.all.order(id: :desc).page(params[:page]).per(6)
-    @tags = Tag.all.includes(:articles).includes(:tag_article_relationships).order(id: :desc)
+    @articles = Article.all.order(id: :desc).page(params[:page]).per(5)
   end
 
   def show
-    @tags = Tag.all.includes(:articles).includes(:tag_article_relationships).order(id: :desc)
     @article.update!(read: @article.read+=1)
   end
 
@@ -40,7 +39,6 @@ class ArticleController < ApplicationController
   end
 
   def search
-    @tags = Tag.all.includes(:articles).includes(:tag_article_relationships).order(id: :desc)
     validate_search_key
     if @query_string.present?
       search_result = Article.ransack(@search_criteria).result(:distinct => true)
@@ -61,5 +59,9 @@ class ArticleController < ApplicationController
 
     def set_article
       @article = Article.friendly.find(params[:id])
+    end
+
+    def set_tags
+      @tags = Tag.all.includes(:articles).includes(:tag_article_relationships).order(id: :desc)
     end
 end

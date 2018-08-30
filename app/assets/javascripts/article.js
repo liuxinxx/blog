@@ -7,12 +7,4 @@ $(document).on("turbolinks:load", function() {
   });
   $('table').addClass('table table-striped');
   $('.articleImg').zoomify();
-
-
-  var blog = $('.content')
-  var i;
-  for (i = 0; i < blog.size(); i++) {
-    var content = $('#' + blog[i].id).data('content')
-    $('#' + blog[i].id).append(marked(content + '...'));
-  }
 })
