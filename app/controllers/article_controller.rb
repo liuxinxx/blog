@@ -8,6 +8,7 @@ class ArticleController < ApplicationController
   end
 
   def show
+    @tags = Tag.all.includes(:articles).includes(:tag_article_relationships).order(id: :desc)
     @article.update!(read: @article.read+=1)
   end
 
@@ -39,6 +40,7 @@ class ArticleController < ApplicationController
   end
 
   def search
+    @tags = Tag.all.includes(:articles).includes(:tag_article_relationships).order(id: :desc)
     validate_search_key
     if @query_string.present?
       search_result = Article.ransack(@search_criteria).result(:distinct => true)

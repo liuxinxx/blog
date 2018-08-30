@@ -1,6 +1,6 @@
 <div class="col-md-9">
   <%@articles.each do |a|%>
-  <div class="more" style="padding: 20px;margin: 0 0 20px;border-radius: 10px;background-color: #FFF;">
+  <div class="more" style="padding: 20px;margin: 0 0 30px;border-radius: 10px;background-color: #FFF;">
     <p class="listRrticleTitle" align="center">
       <%= link_to a.title,article_path(a) ,class:'listRrticleTitle'%>
     </p>
@@ -24,11 +24,3 @@
 <div class="col-md-3">
   <%= render 'shared/sidebar' %>
 </div>
-<script type="text/javascript">
-  var blog = $('.content')
-  var i;
-  for(i = 0;i<blog.size();i++){
-    var content = $('#'+blog[i].id).data('content')
-    $('#'+blog[i].id).append(marked(content+'...'));
-  }
-</script>
