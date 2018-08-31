@@ -1,7 +1,7 @@
 <div class="panel">
   <div  align="center">
     <h2 class="post-title"><%= @article.title%></h2>
-    <div style="color: #aaa;">
+    <div style="color: #aaa;font-size: 15px;">
       <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
       <span><%=@article.created_at.strftime("%m月%d日 %H:%M")%></span>
       <span><%tags = @article.tags %></span>

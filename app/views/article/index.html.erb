@@ -1,12 +1,12 @@
 <div class="col-md-9">
   <%@articles.each do |a|%>
-  <div class="more" style="padding: 20px;margin: 0 0 30px;border-radius: 10px;background-color: #FFF;">
+  <div class="more" style="padding: 18px;margin: 0 0 25px;border-radius: 8px;background-color: #FFF;">
     <p class="listRrticleTitle" align="center">
       <%= link_to a.title,article_path(a) ,class:'listRrticleTitle'%>
     </p>
     <p style="color: #777;" align="center">
       <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
-      <span style="font-size: 12px;"><%=a.created_at.strftime("%m-%d %H:%M")%>
+      <span style="font-size: 13px;"><%=a.created_at.strftime("%Y-%m-%d %H:%M")%>
         <img id = 'imgRead' src="<%=asset_path('read.svg')%>">
         <%=a.read%>
       </span>

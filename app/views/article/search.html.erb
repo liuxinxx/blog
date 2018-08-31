@@ -4,13 +4,13 @@
   <% elsif @articles.blank?%>
   <h2 class="search-info-title">亲，没有搜索到文章哦，要不换个关键词试试？</h2>
   <% else %>
-  <div class="alert alert-info" >
-    <h4>包含 <font color="red"><%= @query_string %></font> 的文章有<%= @articles.count %>条</h4>
+  <div class="alert alert-success" style="padding: 10px;text-align: left;background-color: #00CCFF;color: #FFF;">
+    <p>包含 <font color="#CC3333"><%= @query_string %></font> 的文章有<%= @articles.count %>条</p>
   </div>
   <%@articles.each do |a|%>
   <div class="more" style="padding: 20px;margin: 0 0 20px;border-radius: 8px;background-color: #FFF;">
     <p class="listRrticleTitle" align="center">
-      <%= link_to (render_highlight_content(a,@query_string).to_s.size == 0 ? a.title : render_highlight_content(a,@query_string)) ,article_path(a) %>
+      <%= link_to (render_highlight_content(a,@query_string).to_s.size == 0 ? a.title : render_highlight_content(a,@query_string)) ,article_path(a) ,class:'listRrticleTitle'%>
     </p>
     <p style="color: #777;" align="center">
       <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
