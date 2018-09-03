@@ -42,15 +42,34 @@
     <hr>
     <div class="statement">
       <% if @article.is_original%>
-      <h5><strong>声明：</strong>原创文章，欢迎转载，请以 <code>超链接</code> 的形式注明 <kbd>作者</kbd> 、<kbd>标题</kbd> 和 <kbd>原始出处</kbd>。<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">"知识共享署名-非商业性使用-相同方式共享 2.5 中国大陆许可协议"</a></h5>
+      <h5><strong>声明：</strong>原创文章，欢迎转载，请以 <code>超链接</code> 的形式注明 <kbd>作者</kbd> 、<kbd>标题</kbd> 和 <kbd>原始出处</kbd>。遵循<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">"知识共享署名-非商业性使用-相同方式共享 2.5 中国大陆许可协议"</a></h5>
       <h5><strong>标题：</strong><%= @article.title%>（自动实时更新） | <strong>作者：</strong><%= @article.user.nickname%></h5>
       <h5><strong>地址：</strong><%= article_url(@article)%></h5>
       <%else%>
       <h4 style="color: #FF0033;">本文为转载，原文信息</h4>
-      <h5><strong>声明：</strong>转载本文，请以 <code>超链接</code> 的形式注明 <kbd>原作者</kbd> 、<kbd>原标题</kbd> 和 <kbd>原始</kbd>出处。<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">"知识共享署名-非商业性使用-相同方式共享 2.5 中国大陆许可协议"</a></h5>
+      <h5><strong>声明：</strong>转载本文，请以 <code>超链接</code> 的形式注明 <kbd>原作者</kbd> 、<kbd>原标题</kbd> 和 <kbd>原始</kbd>出处。遵循<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">"知识共享署名-非商业性使用-相同方式共享 2.5 中国大陆许可协议"</a></h5>
       <h5><strong>标题：</strong><a href="<%= @article.source_url%>"  target="_blank" ><%= @article.source_title%></a></h5>
       <h5><strong>地址：</strong><%= @article.source_url%></h5>
       <%end%>
     </div>
+  </div>
+</div>
+<div class="panel" style="border-radius: 20px;">
+  <div class="panel-body">
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = "<%= article_url(@article) %>";
+        this.page.identifier = "<%= @article.title%>";
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-liuxin-im.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
   </div>
 </div>
