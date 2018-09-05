@@ -1,7 +1,7 @@
 <div class="panel">
   <div  align="center">
     <h2 class="post-title"><%= @article.title%></h2>
-    <div style="color: #aaa;font-size: 15px;">
+    <div style="color: #999;font-size: 15px;">
       <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
       <span><%=@article.created_at.strftime("%m月%d日 %H:%M")%></span>
       <span><%tags = @article.tags %></span>
@@ -44,7 +44,7 @@
       <% if @article.is_original%>
       <h5><strong>声明：</strong>原创文章，欢迎转载，请以 <code>超链接</code> 的形式注明 <kbd>作者</kbd> 、<kbd>标题</kbd> 和 <kbd>原始出处</kbd>。遵循<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">"知识共享署名-非商业性使用-相同方式共享 2.5 中国大陆许可协议"</a></h5>
       <h5><strong>标题：</strong><%= @article.title%>（自动实时更新） | <strong>作者：</strong><%= @article.user.nickname%></h5>
-      <h5><strong>地址：</strong><%= article_url(@article)%></h5>
+      <h5><strong>地址：</strong><a href="<%=URI.decode(article_url(@article.title))%>"><%=URI.decode(article_url(@article.title))%></a></h5>
       <%else%>
       <h4 style="color: #FF0033;">本文为转载，原文信息</h4>
       <h5><strong>声明：</strong>转载本文，请以 <code>超链接</code> 的形式注明 <kbd>原作者</kbd> 、<kbd>原标题</kbd> 和 <kbd>原始</kbd>出处。遵循<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">"知识共享署名-非商业性使用-相同方式共享 2.5 中国大陆许可协议"</a></h5>
@@ -54,7 +54,7 @@
     </div>
   </div>
 </div>
-<div class="panel" style="border-radius: 20px;">
+<div class="panel" style="border-radius: 10px;">
   <div class="panel-body">
     <div id="disqus_thread"></div>
     <script>
