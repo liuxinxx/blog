@@ -15,8 +15,7 @@
   height: 100%;
   min-width: 100%;
   min-height: 100%;
-  color: #444444;
-  font-size: 1.02rem;
+  font-size: 1rem;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   font-weight: 400;
   line-height: 1.6;
@@ -30,7 +29,6 @@
   box-shadow: 0 20px 100px -30px #333;
   margin-bottom: 10px;
   margin-top: 10px;
-
 }
 .articleImgDiv{
   margin: 0;
@@ -56,7 +54,7 @@ h2{
   letter-spacing: -1px;
   margin-bottom: 20px;
   font-weight: normal;
-  color: #777;
+  color: #444;
 }
 h3{
   line-height: 1.5;
@@ -80,7 +78,7 @@ p{
   background-size: cover;
   padding: 80px 0 0;
   text-align: center;
-  min-height: 236px;
+  min-height: 200px;
   position: relative;
   border-radius: 10px;
 }
@@ -121,6 +119,7 @@ p{
 }
 pre{
   padding: 0;
+  border: 0.125em solid #eee;
 }
 .tags{
   margin: 3px;
@@ -146,10 +145,10 @@ a:link { text-decoration: none;}
 }
 .originalLabel{
   background: #81D573;
-  color: #1B8909;
+  color: #555;
   font-weight: normal;
   border-radius: 4px;
-  padding: 2px 4px;
+  padding: 1px 3px;
 }
 .forwardingLabel{
   background: #999;
@@ -172,4 +171,12 @@ a:link { text-decoration: none;}
   background-color: #eee;
   border-radius: 10px;
   padding: 10px;
+}
+.appreciates_code{
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  padding: -1;
+  border: 0.25em solid #d9a82d;
 }
