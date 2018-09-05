@@ -17,11 +17,11 @@ class Admin::ArticlesController < Admin::BaseController
        source_url:raticles_params[:source_url],
        is_original:@is_original
        )
+    # 删除当前关联
+    @article.tag_article_relationships.delete_all
     raticles_params[:tags].split(',').each do |t|
       tag = Tag.find_by(tag_name: t)
-      if tag.present? && TagArticleRelationship.find_by(article_id: @article.id,tag_id:tag.id)
-        p '已存在'
-      else
+      unless tag.present? && TagArticleRelationship.find_by(article_id: @article.id,tag_id:tag.id)
         @article.tags << Tag.find_or_create_by(tag_name: t)
       end
     end
