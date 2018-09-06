@@ -1,4 +1,5 @@
 $(document).on("turbolinks:load", function() {
+  $('#sidebar').width($('#main').width() / 9 * 3)
   $('#article_tags').tagsInput();
   content = $('#blog-content').data('content');
   if (content) $('#blog-content').append(marked(content));

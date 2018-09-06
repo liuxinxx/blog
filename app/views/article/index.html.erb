@@ -1,4 +1,4 @@
-<div class="col-md-9">
+<div class="col-md-9" id='main'>
   <%@articles.each do |a|%>
   <div class="more" style="padding: 18px;margin: 0 0 25px;border-radius: 8px;background-color: #FFF;">
     <p class="listRrticleTitle" align="center">
@@ -22,14 +22,17 @@
   </div>
 </div>
 <div class="col-md-3">
-  <%= render 'shared/sidebar' %>
+  <div  id ='sidebar'>
+  <%= render 'shared/admin_info' %>
+  <%= render 'shared/search' %>
+  <%= render 'shared/tags' %>
   <%= render 'shared/appreciates_code' %>
+  </div>
 </div>
 <script type="text/javascript">
   var blog = $('.content')
-  var i;
-  for (i = 0; i < blog.size(); i++) {
+  for (let i = 0; i < blog.size(); i++) {
     var content = $('#' + blog[i].id).data('content')
-    $('#' + blog[i].id).append(marked(content + '...'));
+    $('#' + blog[i].id).html(marked(content + '...'));
   }
 </script>
