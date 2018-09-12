@@ -11,7 +11,8 @@
         <%=a.read%>
       </span>
     </p>
-    <div class="content" data-content='<%=a.content.split('<!--more-->')[0].gsub('##','####').gsub(/^#.*?\s+/,'#### ')%>' id="blog_<%=a.id%>"></div>
+    <div class="content" data-content='<%=a.content.split('<!--more-->')[0].gsub('##','####').gsub(/^#.*?\s+/,'#### ')%>' id="blog_<%=a.id%>">
+    </div>
     <div align="center">
       <%= link_to '阅读更多...',article_path(a) ,class:'btn',style:"border:1.2px solid #ddd;font-size:18px;margin-top:10px;"%>
     </div>
@@ -23,10 +24,10 @@
 </div>
 <div class="col-md-3">
   <div  id ='sidebar'>
-  <%= render 'shared/admin_info' %>
-  <%= render 'shared/search' %>
-  <%= render 'shared/tags' %>
-  <%= render 'shared/appreciates_code' %>
+    <%= render 'shared/admin_info' %>
+    <%= render 'shared/search' %>
+    <%= render 'shared/tags' %>
+    <%= render 'shared/appreciates_code' %>
   </div>
 </div>
 <script type="text/javascript">

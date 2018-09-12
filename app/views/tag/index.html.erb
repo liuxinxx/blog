@@ -1,27 +1,29 @@
-<div class="col-md-9">
-  <div class="panel">
-    <div class="panel-body">
-    	<h3 style="color: red;">"<%= @tag%>"</h3>
-    	<br>
-      <%@articles.each do |a|%>
-      <p>
-        <span style="font-size: 22px;"><%= link_to a.title,article_path(a) ,class:'articleTitle'%>
+<div class="col-md-9" id='main'>
+  <div class="more" style="padding: 18px;margin: 0 0 25px;border-radius: 8px;background-color: #FFF;">
+    <h3 style="color: red;">"<%= @tag%>"</h3>
+    <br>
+    <%@articles.each do |a|%>
+    <p>
+      <span style="font-size: 22px;"><%= link_to a.title,article_path(a) ,class:'articleTitle'%>
+      </span>
+      <span style="color: #777;">
+        <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
+        <span style="font-size: 12px;"><%=a.created_at.strftime("%m-%d %H:%M")%>
+          <img id = 'imgRead' src="<%=asset_path('read.svg')%>">
+          <%=a.read%>
         </span>
-        <span style="color: #777;">
-          <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
-          <span style="font-size: 12px;"><%=a.created_at.strftime("%m-%d %H:%M")%>
-            <img id = 'imgRead' src="<%=asset_path('read.svg')%>">
-            <%=a.read%>
-          </span>
-        </span>
-      </p>
-      <%end%>
-    </div>
-    <div  align="center">
-      <%= paginate @articles %>
-    </div>
+      </span>
+    </p>
+    <%end%>
+  </div>
+  <div  align="center">
+    <%= paginate @articles %>
   </div>
 </div>
 <div class="col-md-3">
-  <%= render 'shared/sidebar' %>
+  <div  id ='sidebar'>
+    <%= render 'shared/admin_info' %>
+    <%= render 'shared/search' %>
+    <%= render 'shared/tags' %>
+  </div>
 </div>
