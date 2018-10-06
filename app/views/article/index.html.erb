@@ -1,20 +1,26 @@
 <div class="col-md-9" id='main'>
   <%@articles.each do |a|%>
-  <div class="more" style="padding: 18px;margin: 0 0 25px;border-radius: 8px;background-color: #FFF;">
-    <p class="listRrticleTitle" align="center">
-      <%= link_to a.title,article_path(a) ,class:'listRrticleTitle'%>
-    </p>
-    <p style="color: #777;" align="center">
-      <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
-      <span style="font-size: 13px;"><%=a.created_at.strftime("%Y-%m-%d %H:%M")%>
-        <img id = 'imgRead' src="<%=asset_path('read.svg')%>">
-        <%=a.read%>
-      </span>
-    </p>
-    <div class="content" data-content='<%=a.content.split('<!--more-->')[0].gsub('##','####').gsub(/^#.*?\s+/,'#### ')%>' id="blog_<%=a.id%>">
-    </div>
-    <div align="center">
-      <%= link_to '阅读更多...',article_path(a) ,class:'btn',style:"border:1.2px solid #ddd;font-size:18px;margin-top:10px;"%>
+  <div class="panel">
+    <div class="panel-body">
+      <p class="listRrticleTitle" align="center">
+        <%= link_to a.title,article_path(a) ,class:'listRrticleTitle'%>
+      </p>
+      <div class="content" data-content='<%=a.content.split('<!--more-->')[0].gsub('##','####').gsub(/^#.*?\s+/,'#### ')%>' id="blog_<%=a.id%>">
+      </div>
+      <div class="">
+        <div  style="float: left;">
+          <p style="color: #777;" align="center">
+            <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
+            <span style="font-size: 13px;"><%=a.created_at.strftime("%Y-%m-%d %H:%M")%>
+              <img id = 'imgRead' src="<%=asset_path('read.svg')%>">
+              <%=a.read%>
+            </span>
+          </p>
+        </div>
+        <div  style="float: right;" >
+          <%= link_to '阅读更多>>',article_path(a) ,class:'btn'%>
+        </div>
+      </div>
     </div>
   </div>
   <%end%>
@@ -23,17 +29,15 @@
   </div>
 </div>
 <div class="col-md-3">
-  <div  id ='sidebar'>
-    <%= render 'shared/admin_info' %>
-    <%= render 'shared/search' %>
-    <%= render 'shared/tags' %>
-    <%= render 'shared/appreciates_code' %>
-  </div>
+  <%= render 'shared/admin_info' %>
+  <%= render 'shared/search' %>
+  <%= render 'shared/tags' %>
+  <%= render 'shared/appreciates_code' %>
 </div>
 <script type="text/javascript">
   var blog = $('.content')
   for (let i = 0; i < blog.size(); i++) {
     var content = $('#' + blog[i].id).data('content')
-    $('#' + blog[i].id).html(marked(content + '...'));
+    $('#' + blog[i].id).html(marked(content.substring(0,content.length-1) + '...'));
   }
 </script>

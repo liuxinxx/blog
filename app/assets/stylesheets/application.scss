@@ -19,12 +19,8 @@
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   font-weight: 400;
   line-height: 1.6;
-  color: #212529;
+  color: #333;
   text-align: left;
-}
-#sidebar{
-  position: fixed;
-  visibility: hidden;
 }
 .logo{
   font-weight: 600;
@@ -51,15 +47,15 @@ $gray-medium-light: #eaeaea;
   box-sizing:border-box;
 }
 
-h1,h2,h3,h4,h5,h6{ line-height: 1;
+h1,h2,h3,h4,h5,h6{ line-height: 1.5;
 }
 h1{
-  font-size: 2.5rem;
+  font-size: 2rem;
   letter-spacing: -2px;
   margin-bottom: 20px;
 }
 h2{
-  font-size: 2rem;
+  font-size: 1.8rem;
   letter-spacing: -1px;
   margin-bottom: 20px;
   font-weight: normal;
@@ -69,29 +65,30 @@ h3{
   line-height: 1.5;
 }
 p{
-  font-size: 1.02rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 #mainContent,#adminMainContent{
   overflow : hidden;
   min-height: 100%;
   position:relative;
   padding-bottom: 100px;
-  background-color: #f0f2eb;
-  // background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  background-color: #f0f0f5;
 }
 .header {
   background-repeat: no-repeat;
   background-position: center 0;
   -webkit-background-size: cover;
   background-size: cover;
+  margin-bottom: 20px;
   padding: 20px;
   text-align: center;
-  // min-height: 200px;
+  min-height: 130px;
+  color: #111111;
   position: relative;
   background-color: #8cbeaa;
-  // background-image: url('http://pd8738g5p.bkt.clouddn.com/20180906140216.jpg')
-  // border-radius: 10px;
+  background-image: url('http://pd8738g5p.bkt.clouddn.com/20180906140216.jpg');
+  border-radius: 4px;
 }
 .logoimg {
   position: absolute;
@@ -110,19 +107,19 @@ p{
   padding-top: 40px;
 }
 #footer > p{
-  font-size: 1.1em;
+  font-size: 1.2em;
   color: #000;
   font-weight: 700;
 }
 #imgCalendar{
   width: 15px;
   height: 15px;
-  margin-top: -4px;
+  margin-top: -2px;
 }
 #imgRead{
   width: 15px;
   height: 15px;
-  margin-top: -4px;
+  margin-top: -2px;
 }
 #imgHome{
   width: 20px;
@@ -130,7 +127,7 @@ p{
 }
 pre{
   padding: 0;
-  border: 0.125em solid #eee;
+  border-radius: 6px;
 }
 .tags{
   margin: 3px;
@@ -148,11 +145,11 @@ pre{
 a:link { text-decoration: none;}
 
 .listRrticleTitle{
-  font-size: 1.25em;
+  font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 0;
   font-weight: normal;
-  color: #f09027;
+  color: #3c2f60;
 }
 .originalLabel{
   background: #81D573;
@@ -180,8 +177,10 @@ a:link { text-decoration: none;}
   font-size: 15px;
   margin-top: 20px;
   background-color: #eee;
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 10px 60px -25px #333;
+  line-height: 1.5;
 }
 .appreciates_code{
   margin-top: 10px;
@@ -190,4 +189,8 @@ a:link { text-decoration: none;}
   border-radius: 18px;
   padding: -1;
   border: 0.25em solid #d9a82d;
+}
+.panel{
+  box-shadow: 0 10px 60px -25px #333;
+  border-radius: 15px;
 }
