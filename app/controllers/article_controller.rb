@@ -58,6 +58,8 @@ class ArticleController < ApplicationController
     end
 
     def set_article
+      pp '============='
+      pp params
       @article = Article.friendly.find(params[:id])
     end
 

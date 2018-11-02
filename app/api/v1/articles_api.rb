@@ -7,34 +7,45 @@ module V1
         requires :title, type: String
         requires :content, type: String
         requires :tags, type: String
+        requires :source_title, type: String
       end
       post do
+        pp params
+        is_original = true
+        is_original = false if params[:source_title]!="liuxin's blog"
+        is_original = false if params[:source_url] != ""
+
         a = {
           "title" => params[:title],
-          "content" => params[:content]
+          "content" => params[:content],
+          "source_title"=> params[:source_title],
+          "source_url"=> params[:source_url],
+          "is_original"=> is_original
         }
         @article = Article.new(a)
         begin
-          @article.user_id = current_user.id
-          @article.read = 1
-          ActiveRecord::Base.transaction do
-            if @article.save
-              params[:tags].split(',').each do |t|
-                tag = Tag.find_by(tag_name: t)
-                p tag
-                if tag.present? && TagArticleRelationship.find_by(article_id: @article.id,tag_id:tag.id)
-                  p '已存在'
-                else
-                  @article.tags << Tag.find_or_create_by(tag_name: t)
+          @article.transaction do
+            @article.user_id = current_user.id
+            @article.read = 1
+            ActiveRecord::Base.transaction do
+              if @article.save
+                params[:tags].split(',').each do |t|
+                  tag = Tag.find_by(tag_name: t)
+                  p tag
+                  if tag.present? && TagArticleRelationship.find_by(article_id: @article.id,tag_id:tag.id)
+                    p '已存在'
+                  else
+                    @article.tags << Tag.find_or_create_by(tag_name: t)
+                  end
                 end
+                return {result: 1,message:"文章创建成功！"}
+              else
+                return {result: 0,message:"发表失败!error_message:" << @articles.errors.full_messages.to_s }
               end
-              return {result: 1,message: 'success' ,data: @article}
-            else
-              return {result: 0,message: 'fail'+ @articles.errors.full_messages.to_s ,data: nil}
             end
           end
         rescue Exception => e
-          return {result: 0,message: 'fail'+e.message,data: nil}
+          return {result: 0,message:"发表失败!error_message:" << e.message }
         end
       end
 
