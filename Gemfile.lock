@@ -114,6 +114,7 @@ GEM
       grape (>= 0.16.2)
     grape-swagger-rails (0.3.0)
       railties (>= 3.2.12)
+    hirb (0.7.3)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
@@ -285,6 +286,7 @@ DEPENDENCIES
   grape
   grape-swagger
   grape-swagger-rails
+  hirb
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
