@@ -6,7 +6,7 @@
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-server '23.106.136.112', user: 'deploy', roles: %w{app db web}
+server '104.243.26.146', user: 'deploy', roles: %w{app db web}
 
 
 
@@ -63,6 +63,6 @@ server '23.106.136.112', user: 'deploy', roles: %w{app db web}
   set :ssh_options, {
     keys: %w(/home/deploy/.ssh/id_rsa),
 #    forward_agent: false,
-    	port: 29736
+    	port: 29096
 #    auth_methods: %w(password)
   }

@@ -37,7 +37,8 @@ gem 'grape-swagger-rails'
 ## 搜索
 gem 'ransack'
 gem 'seo_helper'
-
+## 网站性能分析
+gem 'newrelic_rpm'
 gem 'bootstrap-tagsinput-rails'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
