@@ -1,3 +1,4 @@
+require 'new_relic/recipes'
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
@@ -19,12 +20,12 @@ set :deploy_to, '/home/deploy/blog'
 
 # Default value for :pty is false
 # set :pty, true
-append :linked_files, "config/database.yml", "config/secrets.yml"
+append :linked_files, "config/database.yml", "config/secrets.yml","config/newrelic.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
-
+after "deploy:updated", "newrelic:notice_deployment"
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
