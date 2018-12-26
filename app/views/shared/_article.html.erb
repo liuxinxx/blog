@@ -1,7 +1,7 @@
 <div class="panel">
   <div  align="center">
-    <h2 class="post-title"><%= @article.title%></h2>
-    <div style="color: #999;font-size: 15px;">
+    <h3 class="post-title"><%= @article.title%></h3>
+    <div style="color: #8590A6;font-size: 13px;">
       <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
       <span><%=@article.created_at.strftime("%m月%d日 %H:%M")%></span>
       <span><%tags = @article.tags %></span>
@@ -14,7 +14,7 @@
         <%if @article.is_original %>
         <%= @article.source_title%>
         <%else%>
-        <a href="<%= @article.source_url%>" style="color: #eee;" target="_blank" >
+        <a href="<%= @article.source_url%>" style="color: #fff;font-size: 8px" target="_blank" >
           <%= @article.source_title%>
         </a>
         <%end%>
@@ -35,21 +35,23 @@
       <%end%>
     </div>
   </div>
-  <hr>
+  <hr class="style-five">
   <div class="panel-body">
     <div id="blog-content" data-content="<%= @article.content %>">
     </div>
     <hr>
     <div class="statement">
       <% if @article.is_original%>
-      <h5><strong>声明：</strong>原创文章,欢迎转载，请以 <code>超链接</code> 的形式注明 <kbd>作者</kbd> 、<kbd>标题</kbd> 和 <kbd>原始出处</kbd>。遵循<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">"知识共享署名-非商业性使用-相同方式共享 2.5 中国大陆许可协议"</a></h5>
+      <h4 style="color: red;text-align: center;">原创文章,欢迎转载</h4>
+      <h5><strong>声明：</strong>请以 <code>超链接</code> 的形式注明 <kbd>作者</kbd> 、<kbd>标题</kbd> 和 <kbd>原始出处</kbd>。遵循<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">"知识共享署名-非商业性使用-相同方式共享 2.5 中国大陆许可协议"</a></h5>
       <h5><strong>标题：</strong><%= @article.title%>（自动实时更新） | <strong>作者：</strong><%= @article.user.nickname%></h5>
       <h5><strong>地址：</strong><a href="<%=URI.decode(article_url(@article.title))%>"><%=URI.decode(article_url(@article.title))%></a></h5>
       <%else%>
-      <h4 style="color: #FF0033;">本文为转载，原文信息</h4>
-      <h5><strong>声明：</strong>转载本文,请以 <code>超链接</code> 的形式注明 <kbd>原作者</kbd> 、<kbd>原标题</kbd> 和 <kbd>原始</kbd>出处。遵循<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">"知识共享署名-非商业性使用-相同方式共享 2.5 中国大陆许可协议"</a></h5>
+      <h4 style="color: red;text-align: center;">转载文章,原文信息</h4>
+      <h5><strong>声明：</strong>转载本文,请以 <code>超链接</code> 的形式注明 <kbd>原作者</kbd> 、<kbd>原标题</kbd> 和 <kbd>原始出处</kbd>。遵循<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">"知识共享署名-非商业性使用-相同方式共享 2.5 中国大陆许可协议"</a></h5>
       <h5><strong>标题：</strong><a href="<%= @article.source_url%>"  target="_blank" ><%= @article.source_title%></a></h5>
       <h5><strong>地址：</strong><%= @article.source_url%></h5>
+      <h5 ><kbd>我无意冒犯您的版权,如果侵犯到您的权益.请联系我删除.</kbd></h5>
       <%end%>
     </div>
   </div>
