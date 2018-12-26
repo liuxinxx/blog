@@ -73,9 +73,11 @@ p{
   min-height: 100%;
   position:relative;
   padding-bottom: 100px;
-  background-color: #f0f0f5;
+  background-color: #f6f6f6;
 }
 .header {
+  box-shadow: 10px 10px 60px -25px #999;
+  border-radius: 6px;
   background-repeat: no-repeat;
   background-position: center 0;
   -webkit-background-size: cover;
@@ -84,11 +86,9 @@ p{
   padding: 20px;
   text-align: center;
   min-height: 130px;
-  color: #111111;
+  color: #FFF;
   position: relative;
-  background-color: #8cbeaa;
-  background-image: url('http://pd8738g5p.bkt.clouddn.com/20180906140216.jpg');
-  border-radius: 4px;
+  background-image: url('https://ws2.sinaimg.cn/large/006tNbRwly1fyjw0jkzcbj31hc0mbh05.jpg');
 }
 .logoimg {
   position: absolute;
@@ -149,7 +149,7 @@ a:link { text-decoration: none;}
   letter-spacing: -1px;
   margin-bottom: 0;
   font-weight: normal;
-  color: #3c2f60;
+  color: #444;
 }
 .originalLabel{
   background: #81D573;
@@ -191,6 +191,6 @@ a:link { text-decoration: none;}
   border: 0.25em solid #d9a82d;
 }
 .panel{
-  box-shadow: 0 10px 60px -25px #333;
-  border-radius: 15px;
+  box-shadow: 0 10px 60px -35px #6f6f6f;
+  border-radius: 10px;
 }
