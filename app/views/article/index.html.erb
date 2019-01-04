@@ -1,28 +1,26 @@
 <div class="col-md-9" id='main'>
   <%@articles.each do |a|%>
-  <div class="panel" >
-    <div class="panel-body">
-      <p style="line-height: 1.5;font-size: 1.5rem;font-weight: 500;display: block;font-family: inherit;" align="left">
+  <div class="card" >
+    <div class="card-body">
+      <h4  align="left">
         <%= link_to a.title,article_path(a) ,class:'post-title' ,style: "color: #333"%>
-      </p>
+      </h4>
       <div class="content" data-content='<%=a.content.split('<!--more-->')[0].gsub('##','####').gsub(/^#.*?\s+/,'#### ')%>' id="blog_<%=a.id%>">
       </div>
-      <div class="">
-        <div  style="float: right;" >
-          <span style="color: #777;" align="center">
-            <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
-            <span style="font-size: 13px;"><%=a.created_at.strftime("%Y-%m-%d %H:%M")%>
-              <img id = 'imgRead' src="<%=asset_path('read.svg')%>">
-              <%=a.read%>
-            </span>
+      <div  style="float: right;" >
+        <span style="color: #777;" align="center">
+          <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
+          <span style="font-size: 13px;"><%=a.created_at.strftime("%Y-%m-%d %H:%M")%>
+            <img id = 'imgRead' src="<%=asset_path('read.svg')%>">
+            <%=a.read%>
           </span>
-          <%= link_to '阅读更多>>',article_path(a) ,class:'btn'%>
-        </div>
+        </span>
+        <%= link_to '阅读更多>>',article_path(a) ,class:'btn'%>
       </div>
     </div>
   </div>
   <%end%>
-  <div  align="center">
+  <div align="center" style="align-content: center;">
     <%= paginate @articles %>
   </div>
 </div>

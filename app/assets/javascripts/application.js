@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.tagsinput
+//= require bootstrap-sprockets
 //= require turbolinks
 //= require bootstrap
 //= require_tree .

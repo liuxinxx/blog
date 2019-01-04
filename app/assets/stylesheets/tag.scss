@@ -1,3 +1,14 @@
-// Place all the styles related to the tag controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#topic-sidebar {
+  position: fixed;
+  width: 152px;
+
+  @media (min-width: 991.98px) {
+    display: block;
+    width: 210px;
+  }
+
+  @media (min-width: 1199.98px) {
+    display: block;
+    width: 255px;
+  }
+}

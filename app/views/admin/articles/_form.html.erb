@@ -1,29 +1,32 @@
-<div class="panel panel-default">
-  <div class="panel-body">
-    <%= simple_form_for([:admin, @article]) do |f| %>
-    <div class="title">
+<div class="card">
+ <div class="card-header">
+  <h2>新建文章</h2>
+</div>
+<div class="card-body" >
+  <%= simple_form_for([:admin, @article]) do |f| %>
+  <div class="title">
 
-      <%= f.input :title ,label: '标题',input_html: { class: 'form-control'}%>
-    </div>
-    <div class="form-inline row sourceInfo">
-      <div class="col-md-5">
-        <%= f.input :source_title ,label: "来源标题", input_html: { class: 'form-control sourceInput'}%>
-      </div>
-      <div class="col-md-7">
-        <%= f.input :source_url ,label: "来源url", input_html: { class: 'form-control sourceInput'}%>
-      </div>
-    </div>
-    <%= f.label "正文"%>
-    <%= f.text_area :content,rows:30,class: 'form-control'%>
-    <span class="hint">支持markdown语法</span>
-
-    <div class="input string optional article_tags">
-      <label class="string optional" for="article_tags">标签</label>
-      <input data-role='tagsinput' class="string optional form-control" placeholder="多个标签用逗号隔开" type="text" value="<%=@tags%>" name="article[tags]" id="article_tags" >
-    </div>
-    <div style="margin-top: 30px;" align="center">
-      <%= f.submit "保存",class:' btn btn-primary btn-lg ' ,style:'width:100%;'%>
-    </div>
-    <% end%>
+    <%= f.input :title ,label: '标题',input_html: { class: 'form-control'}%>
   </div>
+  <div class="form-inline row sourceInfo">
+    <div class="col-md-5">
+      <%= f.input :source_title ,label: "来源标题", input_html: { class: 'form-control sourceInput'}%>
+    </div>
+    <div class="col-md-7">
+      <%= f.input :source_url ,label: "来源url", input_html: { class: 'form-control sourceInput'}%>
+    </div>
+  </div>
+  <%= f.label "正文"%>
+  <%= f.text_area :content,rows:30,class: 'form-control'%>
+  <span class="hint">支持markdown语法</span>
+
+  <div class="input string optional article_tags">
+    <label class="string optional" for="article_tags">标签</label>
+    <input data-role='tagsinput' class="string optional form-control" placeholder="多个标签用逗号隔开" type="text" value="<%=@tags%>" name="article[tags]" id="article_tags" >
+  </div>
+  <div style="margin-top: 30px;" align="center">
+    <%= f.submit "保存",class:' btn btn-primary btn-lg ' ,style:'width:100%;'%>
+  </div>
+  <% end%>
+</div>
 </div>

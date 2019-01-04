@@ -4,11 +4,9 @@
  *= require zoomify.min.css
  *= require_self
  */
- @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome-sprockets";
  @import "font-awesome";
-
  html,
  body {
   width: 100%;
@@ -22,6 +20,42 @@
   color: #333;
   text-align: left;
 }
+// h1,h2,h3,h4,h5,h6{ line-height: 1.5;
+// }
+// h1{
+//   font-size: 2rem;
+//   letter-spacing: -2px;
+//   margin-bottom: 20px;
+// }
+// h2{
+//   font-size: 1.6rem;
+//   letter-spacing: -1px;
+//   margin-bottom: 20px;
+//   font-weight: normal;
+//   color: #444;
+// }
+// h3{
+//   font-size: 1.4rem;
+// }
+// h4{
+//  font-size: 1.2rem;
+// }
+// h5{
+//   font-size: 1.1rem;
+// }
+// p{
+//   font-size: 1rem;
+//   line-height: 1.5;
+// }
+$gray-medium-light: #eaeaea;
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  box-sizing:border-box;
+}
+
+
 .logo{
   font-weight: 600;
   font-size: 35px;
@@ -41,45 +75,18 @@
   margin: 0;
   padding: 0;
 }
-$gray-medium-light: #eaeaea;
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-
-  box-sizing:border-box;
-}
-
-h1,h2,h3,h4,h5,h6{ line-height: 1.5;
-}
-h1{
-  font-size: 2rem;
-  letter-spacing: -2px;
-  margin-bottom: 20px;
-}
-h2{
-  font-size: 1.8rem;
-  letter-spacing: -1px;
-  margin-bottom: 20px;
-  font-weight: normal;
-  color: #444;
-}
-h3{
-  line-height: 1.5;
-}
-p{
-  font-size: 1rem;
-  line-height: 1.5;
-}
 #mainContent,#adminMainContent{
-  overflow : hidden;
   min-height: 100%;
   position:relative;
   padding-bottom: 100px;
   background-color: #f6f6f6;
+  background:url(https://ws2.sinaimg.cn/large/006tNc79ly1fytczqbb5ij31900u0qv7.jpg);
+  background-attachment: fixed;
+  background-size: cover;
 }
 .header {
   box-shadow: 10px 10px 60px -25px #999;
-  border-radius: 6px;
+  border-radius: 4px;
   background-repeat: no-repeat;
   background-position: center 0;
   -webkit-background-size: cover;
@@ -90,6 +97,7 @@ p{
   min-height: 130px;
   color: #FFF;
   position: relative;
+  // background-color: #FFFFFF
   background-image: url('https://ws2.sinaimg.cn/large/006tNbRwly1fyjw0jkzcbj31hc0mbh05.jpg');
 }
 .logoimg {
@@ -107,6 +115,7 @@ p{
   height: 100px;
   text-align: center;
   padding-top: 40px;
+  color:#FFF
 }
 #footer > p{
   font-size: 1.2em;
@@ -143,12 +152,10 @@ pre{
   vertical-align: baseline;
   padding: 3px 7px;
 }
-.pagination > li > a{
-  color:#44acb6
-}
+
 a:link { text-decoration: none;}
-a{color:#44acb6;font-weight: 500}
-a:hover { color:#2275da; }
+// a{color:#44acb6;font-weight: 500}
+// a:hover { color:#2275da; }
 .listRrticleTitle{
   font-size: 1.2em;
   letter-spacing: -1px;
@@ -211,16 +218,8 @@ a:hover { color:#2275da; }
   padding: -1;
   border: 0.25em solid #d9a82d;
 }
-.panel{
-  // box-shadow: 0 10px 60px -35px #efefef;
-  box-shadow: 0 10px 40px -45px #333;
-  border-radius: 10px !important;
+.card{
+  box-shadow: 0 10px 60px -35px #efefef;
+  border-radius: 6px !important;
+  margin-bottom: 20px;
 }
-hr.style-five {
-  border: 0;
-  height: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-
