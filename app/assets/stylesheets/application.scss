@@ -20,33 +20,33 @@
   color: #333;
   text-align: left;
 }
-// h1,h2,h3,h4,h5,h6{ line-height: 1.5;
-// }
-// h1{
-//   font-size: 2rem;
-//   letter-spacing: -2px;
-//   margin-bottom: 20px;
-// }
-// h2{
-//   font-size: 1.6rem;
-//   letter-spacing: -1px;
-//   margin-bottom: 20px;
-//   font-weight: normal;
-//   color: #444;
-// }
-// h3{
-//   font-size: 1.4rem;
-// }
-// h4{
-//  font-size: 1.2rem;
-// }
-// h5{
-//   font-size: 1.1rem;
-// }
-// p{
-//   font-size: 1rem;
-//   line-height: 1.5;
-// }
+h1,h2,h3,h4,h5,h6{ line-height: 1.5;
+}
+h1{
+  font-size: 2rem;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+h2{
+  font-size: 1.6rem;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  font-weight: normal;
+  color: #444;
+}
+h3{
+  font-size: 1.4rem;
+}
+h4{
+ font-size: 1.2rem;
+}
+h5{
+  font-size: 1.1rem;
+}
+p{
+  font-size: 1rem;
+  line-height: 1.5;
+}
 $gray-medium-light: #eaeaea;
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -163,22 +163,7 @@ a:link { text-decoration: none;}
   font-weight: normal;
   color: #444;
 }
-.originalLabel{
-  background: #d4edda;
-  color: #155724;
-  font-weight: normal;
-  border-radius: 4px;
-  padding: 1px 3px;
-  text-align: center;
-}
-.forwardingLabel{
-  background: #CCC;
-  color: #fff;
-  font-weight: normal;
-  border-radius: 4px;
-  padding: 2px 4px;
-  text-align: center;
-}
+
 .sourceInfo{
   border-radius: 8px;
 }
@@ -222,4 +207,45 @@ a:link { text-decoration: none;}
   box-shadow: 0 10px 60px -35px #efefef;
   border-radius: 6px !important;
   margin-bottom: 20px;
+}
+
+
+a#weixin {
+  position: relative;
+}
+#weixin img {
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(0, 10px);
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  right: -60px;
+  bottom: 40px;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0 10px 60px -25px #000;
+  border-radius: 6px;
+}
+#weixin:hover img {
+  visibility: visible;
+  transform: translate(0, 0px);
+  opacity: 1;
+}
+
+.pay_img{
+  width: 180px;
+  height: 180px;
+}
+.pay{
+ width: 190px;
+ height: 190px;
+ box-shadow: 0 10px 60px -35px #000;
+ border: 1px solid rgba(0, 0, 0, 0.125);
+ border-radius: 8px;
+}
+.card-header {
+  padding: 0.35rem 0.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }

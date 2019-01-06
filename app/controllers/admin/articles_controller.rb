@@ -2,7 +2,7 @@ class Admin::ArticlesController < Admin::BaseController
   before_action :set_article, only: [:show, :edit, :destroy,:update]
   before_action :set_article_is_is_original, only: [:create, :update]
   def index
-    @articles = Article.all.order(id: :desc).page(params[:page]).per(20)
+    @articles = Article.all.order(id: :desc).page(params[:page]).per(10)
   end
 
   def show

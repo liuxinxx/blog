@@ -1,46 +1,29 @@
 <div class="col-md-9" id='main'>
+
   <% if @query_string.blank? %>
-  <h2 class="search-info-title">搜索信息不能为空，请输入关键字搜索</h2>
-  <% elsif @articles.blank?%>
-  <h2 class="search-info-title">亲，没有搜索到文章哦，要不换个关键词试试？</h2>
-  <% else %>
-  <div class="alert" style="padding: 10px;text-align: left;background-color: #EDEDED;color: #333;">
-    <p>包含 <font color="#CC3333"><%= @query_string %></font> 的文章有<%= @articles.count %>条</p>
-  </div>
-  <%@articles.each do |a|%>
-  <div class="panel">
-    <div class="panel-body">
-      <p class="listRrticleTitle" align="center">
-        <%= link_to a.title,article_path(a) ,class:'listRrticleTitle'%>
-      </p>
-      <div class="content" data-content='<%=a.content.split('<!--more-->')[0].gsub('##','####').gsub(/^#.*?\s+/,'#### ')%>' id="blog_<%=a.id%>">
-      </div>
-      <div class="">
-        <div  style="float: left;">
-          <p style="color: #777;" align="center">
-            <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
-            <span style="font-size: 13px;"><%=a.created_at.strftime("%Y-%m-%d %H:%M")%>
-              <img id = 'imgRead' src="<%=asset_path('read.svg')%>">
-              <%=a.read%>
-            </span>
-          </p>
-        </div>
-        <div  style="float: right;" >
-          <%= link_to '阅读更多>>',article_path(a) ,class:'btn'%>
-        </div>
-      </div>
+  <div class="card">
+    <div class="card-body" align="center">
+      <h2 class="search-info-title">搜索信息不能为空，请输入关键字搜索</h2>
     </div>
   </div>
-  <%end%>
-  <%end%>
-  <div  align="center">
-    <%= paginate @articles %>
+  <% elsif @articles.blank?%>
+  <div class="card">
+    <div class="card-body"  align="center">
+      <h2 class="search-info-title">亲，没有搜索到文章哦，要不换个关键词试试？</h2>
+    </div>
   </div>
+  <% else %>
+  <div class="alert alert-primary">
+    包含 <font color="#CC3333"><%= @query_string %></font> 的文章有<%= @articles.count %>条
+  </div>
+  <%= render 'shared/article_list' %>
+  <%end%>
 </div>
 <div class="col-md-3">
-  <div  id ='sidebar'>
+  <div  id ='topic-sidebar'>
     <%= render 'shared/admin_info' %>
     <%= render 'shared/search' %>
+    <%= render 'shared/contact' %>
     <%= render 'shared/tags' %>
   </div>
 </div>

@@ -1,0 +1,35 @@
+  <%@articles.each do |a|%>
+  <div class="card" >
+    <div class="card-body">
+      <h4  align="left">
+        <%= link_to a.title,article_path(a) ,class:'post-title' ,style: "color: #333"%>
+      </h4>
+      <div class="content" data-content='<%=a.content.split('<!--more-->')[0].gsub('##','####').gsub(/^#.*?\s+/,'#### ')%>' id="blog_<%=a.id%>">
+      </div>
+      <div style="float: left;" >
+        <%if a.tags.size > 0%>
+        <%a.tags.each do |tag| %>
+        <span style="font-size: 13px;text-align: center;" align='centter'>
+          <i class="fas fa-tag"></i>
+          <%= link_to tag.tag_name ,tag_index_path(:tag_name => tag.tag_name) ,class: "badge badge-secondary"%>
+        </span>
+        <%end%>
+        <%end%>
+      </div>
+      <div  style="float: right;" >
+        <span style="color: #777;" align="center">
+          <span style="font-size: 13px;">
+            <i class="far fa-calendar-alt"></i>
+            <%=a.created_at.strftime("%Y-%m-%d %H:%M")%>
+            <i class="fas fa-eye"></i>
+            <%=a.read%>
+          </span>
+        </span>
+        <%= link_to '阅读更多',article_path(a) ,class:'btn btn-outline-success btn-sm'%>
+      </div>
+    </div>
+  </div>
+  <%end%>
+  <div align="center" style="align-content: center;">
+    <%= paginate @articles if !@articles.nil? %>
+  </div>

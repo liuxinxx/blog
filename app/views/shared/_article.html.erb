@@ -2,15 +2,15 @@
   <div class="card-header" align="center" >
     <h4><%= @article.title%></h4>
     <div style="color: #8590A6;font-size: 13px;">
-      <img id = 'imgCalendar' src="<%=asset_path('calendar.svg')%>">
-      <span><%=@article.created_at.strftime("%m月%d日 %H:%M")%></span>
+      <i class="far fa-calendar-alt"></i>
+      <span><%=@article.created_at.strftime("%Y-%m-%d %H:%M")%></span>
       <span><%tags = @article.tags %></span>
       <span>
-        <img id = 'imgRead' src="<%=asset_path('read.svg')%>">
+        <i class="fas fa-eye"></i>
         <%=@article.read%>
       </span>
-      文章来源:
-      <span class="<%= @article.is_original ? 'originalLabel':'forwardingLabel'%>">
+      来源:
+      <span class="badge badge-<%= @article.is_original ? 'success':'danger'%>" >
         <%if @article.is_original %>
         <%= @article.source_title%>
         <%else%>
@@ -26,7 +26,8 @@
       <br>
       <%if tags.size > 0%>
       <%tags.each do |tag| %>
-        <%= link_to tag.tag_name ,tag_index_path(:tag_name => tag.tag_name) ,class: "badge badge-primary"%>
+      <i class="fas fa-tag"></i>
+      <%= link_to tag.tag_name ,tag_index_path(:tag_name => tag.tag_name) ,class: "badge badge-secondary"%>
       <%end%>
       <%end%>
     </div>
