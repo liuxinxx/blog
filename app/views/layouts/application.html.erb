@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>liuxin's blog</title>
   <link href="https://ws1.sinaimg.cn/large/006tNc79ly1fyucew7ck4j303k03k745.jpg" rel="bookmark" type="image/x-icon" />
   <link href="https://ws1.sinaimg.cn/large/006tNc79ly1fyucew7ck4j303k03k745.jpg" rel="shortcut icon" type="image/x-icon" />
@@ -20,11 +21,13 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-  <div id="mainContent">
-    <div class="container">
-      <%= render 'shared/header' %>
-      <div class="row">
+  <div id="mainContent" >
+    <%= render 'shared/header' %>
+    <div class="container" >
+      <div style="margin-top: 20px;padding-top: 1rem;">
+      <div class="row ">
         <%= yield %>
+      </div>
       </div>
       <%= render 'shared/footer' %>
     </div>

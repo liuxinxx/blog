@@ -13,4 +13,10 @@ module ApplicationHelper
     flash_messages.join("\n").html_safe
   end
 
+  def mobile?
+    agent_str = request.user_agent.to_s.downcase
+    Rails.logger.info("-----------> agentstr    === #{agent_str}")
+    return agent_str =~ /mobile/
+  end
+
 end

@@ -1,5 +1,11 @@
 <div class="col-md-9" id='main' >
   <%= render 'shared/article' %>
+  <% if mobile? %>
+  <div class="move-page-buttons">
+    <a href="#" class="btn btn-block btn-sm btn-move-page" data-type="top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#" class="btn btn-block btn-sm btn-move-page" data-type="bottom"><i class="fa fa-arrow-down"></i></a>
+  </div>
+  <%end%>
 </div>
 <div class="sidebar col-md-3">
 
@@ -29,26 +35,35 @@
                 <span class="badge badge-success" style="font-size: 0.8rem;font-weight: 400">
                   <i class="fab fa-weixin"> </i>
                   微信
-                </span></div>
+                </span>
               </div>
             </div>
-            <div class="col-md-6">
-              <div align="center">
-                <div class="pay">
-                  <img class="pay_img" src="https://ws3.sinaimg.cn/large/006tNc79ly1fywo35qwahj30910910ut.jpg">
-                </div>
-                <div style="display: block;margin-top: 10px;" >
-                  <span class="badge badge-primary" style="font-size: 0.8rem;font-weight: 400">
-                   <i class="fa fa-alipay"></i>支付宝</span></div>
-                 </div>
-               </div>
-             </div>
-           </div>
-           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">下次再说吧！</button>
+          </div>
+          <div class="col-md-6">
+            <div align="center">
+              <div class="pay">
+                <img class="pay_img" src="https://ws3.sinaimg.cn/large/006tNc79ly1fywo35qwahj30910910ut.jpg">
+              </div>
+              <div style="display: block;margin-top: 10px;" >
+                <span class="badge badge-primary" style="font-size: 0.8rem;font-weight: 400">
+                  <i class="fa fa-alipay"></i>支付宝
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">下次再说吧！</button>
+      </div>
     </div>
-
+  </div>
+</div>
+<script type="text/javascript">
+  $('.btn-move-page').click(function(e) {
+    var t;
+    return t = {scrollTop: 0},
+    "bottom" === $(e.currentTarget).data("type") && (t.scrollTop = $("body").height() -105),$("body, html").animate(t, 300),!1
+  })
+</script>
 

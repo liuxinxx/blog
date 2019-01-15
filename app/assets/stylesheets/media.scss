@@ -1,0 +1,45 @@
+@media screen and (max-width: 600px){
+  #footer span{color:#444}
+  .container { padding: 0; }
+  .row {
+    margin: 0;
+    .col-md-9,
+    .col-md-8,
+    .col-md-6,
+    .col-md-5,
+    .col-md-4,
+    .col-md-3 { padding: 0; }
+  }
+  .hidden-mobile { display: none !important; }
+  .pagination {
+    display: block;
+    li { display: none; }
+    li.prev,
+    li.next {
+      float: left; display: block;
+      a {
+        border-radius: 20px !important;
+      }
+    }
+    li.next { float: right; }
+  }
+  .card{
+    border-radius: 0px !important;
+    margin-bottom: 10px !important;
+  }
+  #mainContent,#adminMainContent{
+    background: #f6f6f6 !important;
+    padding-bottom: 0px !important;
+  }
+  .pagination{
+    display: block !important;
+    li{
+      .prev{
+        float: left !important;
+      }
+      .next {
+        float: right !important;
+      }
+    }
+  }
+}

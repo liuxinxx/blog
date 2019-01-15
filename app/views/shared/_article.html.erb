@@ -26,8 +26,9 @@
       <br>
       <%if tags.size > 0%>
       <%tags.each do |tag| %>
-      <i class="fas fa-tag"></i>
-      <%= link_to tag.tag_name ,tag_index_path(:tag_name => tag.tag_name) ,class: "badge badge-secondary"%>
+      <i class="fas fa-tag">
+        <%= link_to tag.tag_name ,tag_index_path(:tag_name => tag.tag_name) ,class: "badge badge-secondary"%>
+      </i>
       <%end%>
       <%end%>
     </div>

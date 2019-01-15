@@ -9,24 +9,26 @@
 </head>
 <body>
   <div id="adminMainContent">
-    <div  class="container" >
+    <div  class="container " >
       <ul class="nav justify-content-center">
         <li class="nav-item">
-         <a class="nav-link" href="<%= root_url%>">
-          liuxin's blog
-        </a>
-      </li>
-      <li class="nav-item">
-        <%= link_to '新建文章',new_admin_article_path,class:"nav-link"%>
-      </li>
-      <li class="nav-item">
-        <%= link_to '文章列表',admin_articles_path,class:"nav-link"%>
-      </li>
-    </ul>
-    <%=notice_message%>
-    <%= yield %>
+          <a class="nav-link" href="<%= root_url%>">
+            liuxin's blog
+          </a>
+        </li>
+        <li class="nav-item">
+          <%= link_to '新建文章',new_admin_article_path,class:"nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to '文章列表',admin_articles_path,class:"nav-link"%>
+        </li>
+      </ul>
+      <%=notice_message%>
+      <div class="row no-gutters">
+        <%= yield %>
+      </div>
+    </div>
+    <%= render 'shared/footer' %>
   </div>
-  <%= render 'shared/footer' %>
-</div>
 </body>
 </html>

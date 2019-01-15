@@ -1,14 +1,16 @@
 #topic-sidebar {
+  margin-left: -15px;
   position: fixed;
-  width: 152px;
+  width: 167px;
 
   @media (min-width: 991.98px) {
     display: block;
-    width: 210px;
+    width: 225px;
   }
 
   @media (min-width: 1199.98px) {
     display: block;
-    width: 255px;
+    width: 270px;
   }
 }
+

@@ -9,8 +9,6 @@
  @import "font-awesome";
  html,
  body {
-  width: 100%;
-  height: 100%;
   min-width: 100%;
   min-height: 100%;
   font-size: 1rem;
@@ -112,9 +110,10 @@ $gray-medium-light: #eaeaea;
   position:absolute;
   bottom:0px;
   left:0px;
-  height: 100px;
+  // height: 100px;
   text-align: center;
   padding-top: 40px;
+  padding-bottom: 40px;
   color:#FFF
 }
 #footer > p{
@@ -205,7 +204,7 @@ a:link { text-decoration: none;}
 }
 .card{
   box-shadow: 0 10px 60px -35px #efefef;
-  border-radius: 6px !important;
+  border-radius: 6px;
   margin-bottom: 20px;
 }
 
@@ -220,11 +219,13 @@ a#weixin {
   transition: all 0.3s ease-in-out;
   position: absolute;
   right: -60px;
-  bottom: 40px;
+  bottom: -160px;
   width: 150px;
   height: 150px;
   box-shadow: 0 10px 60px -25px #000;
   border-radius: 6px;
+  z-index: 99999;
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
 #weixin:hover img {
   visibility: visible;
@@ -248,4 +249,21 @@ a#weixin {
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.paginate-card{
+  border: 0px !important;
+  padding:5px;
+  margin-bottom: 0px !important;
+}
+.move-page-buttons {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 45px;
+    .btn {
+    background: #ddd;
+}
+a{
+  color:#111
+}
 }
