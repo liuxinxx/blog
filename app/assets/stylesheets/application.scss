@@ -9,6 +9,8 @@
  @import "font-awesome";
  html,
  body {
+  width: 100%;
+  height: 100%;
   min-width: 100%;
   min-height: 100%;
   font-size: 1rem;
@@ -76,7 +78,7 @@ $gray-medium-light: #eaeaea;
 #mainContent,#adminMainContent{
   min-height: 100%;
   position:relative;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   background-color: #f6f6f6;
   background:url(https://ws2.sinaimg.cn/large/006tNc79ly1fytczqbb5ij31900u0qv7.jpg);
   background-attachment: fixed;
@@ -95,7 +97,6 @@ $gray-medium-light: #eaeaea;
   min-height: 130px;
   color: #FFF;
   position: relative;
-  // background-color: #FFFFFF
   background-image: url('https://ws2.sinaimg.cn/large/006tNbRwly1fyjw0jkzcbj31hc0mbh05.jpg');
 }
 .logoimg {
@@ -110,9 +111,8 @@ $gray-medium-light: #eaeaea;
   position:absolute;
   bottom:0px;
   left:0px;
-  height: 100px;
+  height: 50px;
   text-align: center;
-  padding-top: 40px;
   color:#FFF
 }
 #footer > p{
@@ -152,8 +152,6 @@ pre{
 }
 
 a:link { text-decoration: none;}
-// a{color:#44acb6;font-weight: 500}
-// a:hover { color:#2275da; }
 .listRrticleTitle{
   font-size: 1.2em;
   letter-spacing: -1px;
@@ -249,20 +247,20 @@ a#weixin {
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
-.paginate-card{
-  border: 0px !important;
-  padding:5px;
-  margin-bottom: 0px !important;
-}
+
 .move-page-buttons {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    width: 45px;
-    .btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 45px;
+  .btn {
     background: #ddd;
+  }
+  a{
+    color:#111
+  }
 }
-a{
-  color:#111
-}
-}
+  .paginate-card{
+    border: 0px !important;
+    margin-bottom: 0px !important;
+  }
