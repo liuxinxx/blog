@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.cache_store = [:dalli_store, APP_CONFIG["memcached_host"], { namespace: "ns", compress: true }]
+  config.cache_store = [:dalli_store]
   # Code is not reloaded between requests.
   config.cache_classes = true
 
