@@ -5,6 +5,8 @@ class Article < ApplicationRecord
   extend FriendlyId
   friendly_id :title
 
+  second_level_cache expires_in: 1.week
+
   class << self
 
   	def article_to_md

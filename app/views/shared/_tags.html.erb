@@ -1,9 +1,11 @@
 <div class="card">
   <div class="card-header" align="center"><i class="fas fa-tags"></i> 标签</div>
   <div class="card-body">
+    <% cache @tags.cache_key do %>
     <% @tags.each do |t|%>
     <% if t.articles.size > 0%>
     <a class='badge badge-secondary' href="<%=tag_index_path(:tag_name => t.tag_name)%>"><%=t.tag_name%> <span><%=t.articles.size.to_s%></span></a>
+    <%end%>
     <%end%>
     <%end%>
   </div>

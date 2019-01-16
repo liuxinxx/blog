@@ -10,9 +10,9 @@
 <div class="sidebar col-md-3">
 
   <div id="topic-sidebar">
-    <%= render 'shared/contact' %>
+    <%= render 'shared/contact',cached: true  %>
     <%= render 'shared/tags' %>
-    <%= render 'shared/appreciates_code' %>
+    <%= render 'shared/appreciates_code' ,cached: true %>
   </div>
 </div>
 <div class="modal fade" id="appreciates" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

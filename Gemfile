@@ -41,6 +41,12 @@ gem 'seo_helper'
 ## 网站性能分析
 gem 'newrelic_rpm'
 gem 'bootstrap-tagsinput-rails'
+## SEO 优化
+# gem 'meta-tags'
+## 缓存
+gem 'second_level_cache'
+gem 'dalli'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 

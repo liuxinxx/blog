@@ -10,6 +10,7 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
   def update
+    ord_tags = @article.tags.ids
     @article.update(
        title:raticles_params[:title],
        content:raticles_params[:content],
@@ -18,14 +19,21 @@ class Admin::ArticlesController < Admin::BaseController
        is_original:@is_original
        )
     # 删除当前关联
-    @article.tag_article_relationships.delete_all
+    @article.tags.delete_all
     raticles_params[:tags].split(',').each do |t|
       tag = Tag.find_by(tag_name: t)
       unless tag.present? && TagArticleRelationship.find_by(article_id: @article.id,tag_id:tag.id)
         @article.tags << Tag.find_or_create_by(tag_name: t)
       end
     end
-    redirect_to admin_article_url(params[:id]),notice: "文章更新成功！"
+
+    ord_tags.each do |tag|
+      articles = Tag.find_by_id(tag).articles.count
+      if articles == 0
+        Tag.find_by_id(tag).delete
+      end
+    end
+    redirect_to article_url(params[:id]),notice: "文章更新成功！"
   end
 
   def edit
@@ -88,10 +96,7 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
   def set_article
-      pp '============='
-      pp params
-      pp '============='
-    @article = Article.friendly.find(params[:id])
+    @article = Article.friendly.includes(:tags).find(params[:id])
   end
 
   def set_article_is_is_original

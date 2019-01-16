@@ -4,11 +4,11 @@ class ArticleController < ApplicationController
   before_action :set_tags, only: [:index,:show,:search]
 
   def index
-    @articles = Article.all.order(id: :desc).page(params[:page]).per(5)
+    fresh_when  @articles = Article.all.includes(:tags).order(id: :desc).page(params[:page]).per(5)
   end
 
   def show
-    @article.update!(read: @article.read+=1)
+    fresh_when @article.update!(read: @article.read+=1)
   end
 
   def checkUser
@@ -58,9 +58,7 @@ class ArticleController < ApplicationController
     end
 
     def set_article
-      pp '============='
-      pp params
-      @article = Article.friendly.find(params[:id])
+      @article = Article.friendly.includes(:tags).find(params[:id])
     end
 
     def set_tags

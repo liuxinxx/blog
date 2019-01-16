@@ -92,6 +92,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    dalli (2.7.9)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     equalizer (0.0.11)
@@ -223,6 +224,9 @@ GEM
       bundler
       ffi (~> 1.9.6)
       sass (>= 3.3.0)
+    second_level_cache (2.3.3)
+      activerecord (>= 5.0.0, < 5.2)
+      activesupport (>= 5.0.0, < 5.2)
     selenium-webdriver (3.13.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
@@ -284,6 +288,7 @@ DEPENDENCIES
   capistrano-rbenv
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  dalli
   font-awesome-sass (~> 5.0.9)
   friendly_id (~> 5.1.0)
   grape
@@ -300,6 +305,7 @@ DEPENDENCIES
   rails (~> 5.1.5)
   ransack
   sass-rails (~> 5.0)
+  second_level_cache
   selenium-webdriver
   seo_helper
   simple_form
@@ -311,4 +317,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.17.3
+   2.0.1
