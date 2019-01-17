@@ -1,8 +1,4 @@
-if ENV['TRAVIS']
-  source 'https://rubygems.org'
-else
-  source 'https://gems.ruby-china.com'
-end
+source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -15,7 +11,6 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-# gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'coffee-rails', '~> 4.2'
