@@ -37,7 +37,7 @@ gem 'seo_helper'
 gem 'newrelic_rpm'
 gem 'bootstrap-tagsinput-rails'
 ## SEO 优化
-# gem 'meta-tags'
+gem 'meta-tags'
 ## 缓存
 gem 'second_level_cache'
 gem 'dalli'

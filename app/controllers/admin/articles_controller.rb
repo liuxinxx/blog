@@ -6,7 +6,9 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
   def show
-
+    @page_title       = @article.title
+    @page_description = @article.content.split('<!--more-->')[0].gsub('##','####').gsub(/^#.*?\s+/,'#### ')
+    @page_keywords = @article.tags
   end
 
   def update

@@ -4,10 +4,20 @@ class ArticleController < ApplicationController
   before_action :set_tags, only: [:index,:show,:search]
 
   def index
+    @page_keywords = ''
+    Tag.all.each do |c|
+      @page_keywords += "#{c.tag_name},"
+    end
     fresh_when  @articles = Article.all.includes(:tags).order(id: :desc).page(params[:page]).per(5)
   end
 
   def show
+    @page_title       = @article.title
+    @page_description = @article.content.split('<!--more-->')[0].gsub('##','####').gsub(/^#.*?\s+/,'#### ')
+    @page_keywords = ''
+    @article.tags.each do |c|
+      @page_keywords += "#{c.tag_name},"
+    end
     fresh_when @article.update!(read: @article.read+=1)
   end
 
