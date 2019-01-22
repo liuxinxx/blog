@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :tag do
     collection do
       get :tag_name
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
   get 'check' => 'article#checkUser'
   root 'article#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   mount ApplicationApi => '/api'
   mount GrapeSwaggerRails::Engine => '/apidoc'
 end

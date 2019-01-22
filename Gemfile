@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'rails', '~> 5.1.5'
+gem 'rails', '~> 5.2'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
@@ -24,7 +24,7 @@ gem 'capistrano-rbenv'
 gem 'friendly_id', '~> 5.1.0'
 gem 'simple_form'
 gem 'hirb'
-
+gem 'bootsnap'
 gem "kaminari"
 ## 构建api
 gem 'grape'
