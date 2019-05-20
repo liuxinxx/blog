@@ -1,0 +1,9 @@
+<div class="col-md-6">
+  <%= form_for(:login, url: new_user_path) do |f| %>
+
+    <%= f.label :address %>
+    <%= f.email_field :address, class: 'form-control' %>
+
+    <%= f.submit "Log in", class: "btn btn-primary" %>
+  <% end %>
+</div>

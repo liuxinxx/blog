@@ -77,7 +77,7 @@ App = {
     if (web3.eth.accounts[0] == undefined) {
       console.log("Your MetaMask is locked");
     } else {
-      App.login(web3.eth.accounts[0]);
+      App.log in(web3.eth.accounts[0]);
     };
   }
 }

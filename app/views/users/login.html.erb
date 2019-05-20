@@ -1,0 +1,13 @@
+<div class="col-lg-4"></div>
+<div class="col-lg-4" style="text-align: center!important;">
+
+  <%= form_for(:user, url: users_path) do |f| %>
+
+    <%= f.label :Login %>
+    <%= f.text_field :address, class: 'form-control' , type: "password" %>	
+    <hr>
+    <%= f.submit "Log in", class: "btn btn-lg btn-primary btn-bloc" ,type: "submit" %>
+  <% end %>
+
+</div>
+<div class="col-lg-4"></div>
