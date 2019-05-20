@@ -5,6 +5,7 @@ lock "~> 3.11.0"
 set :application, "blog"
 set :repo_url, "https://github.com/myvary/blog.git"
 
+# set :rbenv_path, '/root/.rbenv'
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
