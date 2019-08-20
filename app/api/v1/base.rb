@@ -2,6 +2,8 @@ module V1
   class Base < Grape::API
     version 'v1', :using => :path
 
+    #  无需认证
+    mount V1::Public::Base
 
     rescue_from :all, backtrace: true
     format :json
@@ -16,15 +18,19 @@ module V1
       end
 
       def authenticated
-        pp params[:api_key]
-        params[:api_key] && @user = User.find_by_address(params[:api_key])
+        true
+        # pp params[:api_key]
+        # params[:api_key] && @user = User.find_by_address(params[:api_key])
       end
 
       def current_user
         @user
       end
     end
-    mount V1::ArticlesApi
+
+
+    mount V1::Admin::Base
+    
     add_swagger_documentation(
       :api_version => "api/v1",
       hide_documentation_path: true,

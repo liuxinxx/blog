@@ -25,7 +25,10 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'simple_form'
 gem 'hirb'
 gem 'bootsnap'
+# 分页
 gem "kaminari"
+gem 'api-pagination'
+
 ## 构建api
 gem 'grape'
 gem 'grape-swagger'
