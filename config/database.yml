@@ -4,6 +4,8 @@ default: &default
   pool: 5
   timeout: 5000
   encoding: utf-8
+  username: postgres 
+  password: liuxin0609!
 
 development:
   <<: *default

@@ -18,9 +18,9 @@ module V1
       end
 
       def authenticated
-        true
-        # pp params[:api_key]
-        # params[:api_key] && @user = User.find_by_address(params[:api_key])
+        # true
+        pp "============",params[:api_key]
+        params[:api_key] && @user = User.find_by_address(params[:api_key])
       end
 
       def current_user

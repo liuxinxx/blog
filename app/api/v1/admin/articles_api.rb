@@ -1,6 +1,5 @@
 module V1
   module Admin
-    module Article
     class ArticlesApi < Grape::API
       namespace :articles do
 
@@ -12,7 +11,7 @@ module V1
           requires :source_title, type: String
         end
         post do
-          pp params
+          
           is_original = true
           is_original = false if params[:source_title]!="liuxin's blog"
           is_original = false if params[:source_url] != ""
@@ -42,7 +41,7 @@ module V1
                   end
                   return {result: 1,message:"文章创建成功！"}
                 else
-                  return {result: 0,message:"发表失败!error_message:" << @articles.errors.full_messages.to_s }
+                  return {result: 0,message:"发表失败    !error_message:" << @articles.errors.full_messages.to_s }
                 end
               end
             end
@@ -102,6 +101,5 @@ module V1
 
       end
     end
-  end
   end
 end

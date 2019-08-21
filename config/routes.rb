@@ -6,12 +6,12 @@ Rails.application.routes.draw do
     end
   end
   namespace :admin do
-    resources :articles do
-    end
+    resources :articles , :id => /.*/ 
     root 'articles#index'
   end
-  resources :article do
+  resources :article , :id => /.*/ do
     collection do
+      # get '/:id' => 'article#show', :as => :category, :article => { :id => /[\w+\.]+/ }
       get :search
     end
   end

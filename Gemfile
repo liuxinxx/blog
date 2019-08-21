@@ -44,7 +44,9 @@ gem 'meta-tags'
 ## 缓存
 gem 'second_level_cache'
 gem 'dalli'
+# 
 
+gem 'wdm', '>= 0.1.0'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
