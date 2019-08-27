@@ -44,17 +44,15 @@
     <% if @article.is_original%>
     <div class="original">
       <p align="center">原创文章欢迎转载,转载请注明出处</p>
-      <li><strong>声明：</strong>请以 <code>超链接</code> 的形式注明 <kbd>作者</kbd> 、<kbd>标题</kbd> 和 <kbd>原始出处</kbd>。遵循<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">"CC BY-NC-SA 2.5 CN"</a></li>
-      <li><strong>标题：</strong><%= @article.title%>（自动实时更新） | <strong>作者：</strong><%= @article.user.nickname%></li>
-      <li><strong>地址：</strong><a href="<%=URI.decode(article_url(@article.title))%>"><%=URI.decode(article_url(@article.title))%></a></li>
+      <p><strong>标题：</strong><%= @article.title%> | <strong>作者：</strong><%= @article.user.nickname%></p>
+      <p><strong>地址：</strong><a href="<%=URI.decode(article_url(@article.title))%>"><%=URI.decode(article_url(@article.title))%></a></p>
       <%else%>
       <div class="statement">
         <!-- <div class="card text-white bg-warning"> -->
           <p>转载文章</p>
-          <li><strong>声明：</strong>转载本文,请以 <code>超链接</code> 的形式注明 <kbd>原作者</kbd> 、<kbd>原标题</kbd> 和 <kbd>原始出处</kbd>。遵循<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">"CC BY-NC-SA 2.5 CN"</a></li>
-          <li><strong>标题：</strong><a href="<%= @article.source_url%>"  target="_blank" ><%= @article.source_title%></a></li>
-          <li><strong>地址：</strong><%= @article.source_url%></li>
-          <li ><kbd>我无意冒犯您的版权,如果侵犯到您的权益.请联系我删除.</kbd></li>
+          <p><strong>标题：</strong><a href="<%= @article.source_url%>"  target="_blank" ><%= @article.source_title%></a></p>
+          <p><strong>地址：</strong><%= @article.source_url%></p>
+          <p ><kbd>我无意冒犯您的版权,如果侵犯到您的权益.请联系我删除.</kbd></p>
           <%end%>
         </div>
       </div>

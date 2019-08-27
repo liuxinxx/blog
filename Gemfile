@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+#source "https://gems.ruby-china.com"
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -46,7 +46,7 @@ gem 'second_level_cache'
 gem 'dalli'
 # 
 
-gem 'wdm', '>= 0.1.0'
+# gem 'wdm', '>= 0.1.0'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 

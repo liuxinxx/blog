@@ -13,6 +13,20 @@ module V1
           }
           return {result:1, message:'success' ,data: @articles , page: page}
         end
+
+        desc "查询文章是否存在"
+        params do
+          requires :title, type: String
+        end
+        get "search" do
+          @article = Article.find_by_title(params[:title])
+          data = {
+            "id" => @article.id,
+            "title" => @article.title
+          }
+          return {result:1, message:'success' ,data: data}
+        end
+
       end
     end
   end
