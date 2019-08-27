@@ -3,6 +3,7 @@ module V1
     class Base < Grape::API
       namespace :public do
          mount ArticlesApi
+         mount TagsApi
        end
     end
   end 
