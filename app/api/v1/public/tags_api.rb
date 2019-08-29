@@ -15,7 +15,8 @@ module V1
 
           page = {
             total_page: @tags_list.total_pages,
-            per_page: @tags_list.current_per_page
+            per_page: @tags_list.current_per_page,
+            total_count: @tags_list.total_count
           }
         else
           @tags_list =   Tag.find_by_sql(sql_str)

@@ -9,7 +9,8 @@ module V1
           @articles = paginate  Article.all
            page = {
             total_page: @articles.total_pages,
-            per_page: @articles.current_per_page
+            per_page: @articles.current_per_page,
+            tatal_count: @articles.total_count  
           }
           return {result:1, message:'success' ,data: @articles , page: page}
         end
@@ -25,6 +26,18 @@ module V1
             "title" => @article.title
           }
           return {result:1, message:'success' ,data: data}
+        end
+
+
+        desc "根据id查询文章"
+        get ":id" do
+          @article = Article.find_by_id(params[:id])
+          if(@article)
+            return {result:1, message:'success' ,data: @article}
+          else
+            return {result:0, message:'文章不存在' ,data: @article}
+          end
+
         end
 
       end
