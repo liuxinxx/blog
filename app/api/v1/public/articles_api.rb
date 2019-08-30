@@ -22,12 +22,18 @@ module V1
                                                       A.ID 
                                                     )
                                                     G INNER JOIN users u ON u.ID = G.user_id");
+          @list = @articles.collect do |a|  
+            count = a.content.size()
+            count =  a.content.index("<!--more-->")
+            a.content= a.content[0..count.to_i - 1]
+            a
+          end
            page = {
             total_page: @articles.total_pages,
             per_page: @articles.current_per_page,
             total_count: @articles.total_count
           }
-          return {result:1, message:'success' ,data: @articles , page: page}
+          return {result:1, message:'success' ,data: @list , page: page}
         end
 
         desc "查询文章是否存在"
