@@ -90,10 +90,26 @@ module V1
         desc "文章列表页面"
         paginate per_page: 10, max_per_page: 50,enforce_max_per_page: true
         get "" do
-          @articles = paginate  Article.all
+        @articles = paginate  Article.find_by_sql("SELECT G
+                                        .*,
+                                        u.nickname AS username
+                                      FROM
+                                        (
+                                        SELECT A
+                                          .*,
+                                          string_agg ( tag_name, ',' ) AS tag 
+                                        FROM
+                                          articles
+                                          A INNER JOIN tag_article_relationships t_a ON t_a.article_id = A.
+                                          ID INNER JOIN tags T ON T.ID = t_a.tag_id 
+                                        GROUP BY
+                                          A.ID 
+                                        )
+                                        G INNER JOIN users u ON u.ID = G.user_id");
            page = {
             total_page: @articles.total_pages,
-            per_page: @articles.current_per_page
+            per_page: @articles.current_per_page,
+            total_count:@articles.total_count
           }
           return {result:1, message:'success' ,data: @articles , page: page}
 
