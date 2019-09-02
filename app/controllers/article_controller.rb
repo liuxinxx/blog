@@ -73,13 +73,6 @@ class ArticleController < ApplicationController
 
     def set_tags
       @tags = Tag.all.includes(:articles).includes(:tag_article_relationships).order(id: :desc)
-
-      @tags_list = Tag.find_by_sql('SELECT T
-                                    .ID,
-                                    T.tag_name,
-                                    f.COUNT 
-                                  FROM
-                                    ( SELECT tags.ID, COUNT ( tag_name ) FROM tags JOIN tag_article_relationships ON tags.ID = tag_article_relationships.tag_id GROUP BY tags.ID ) f
-                                    JOIN tags T ON T.ID = f.ID')
+      @tags_list = Tag.find_by_sql('SELECT T.ID,T.tag_name, f.COUNT  FROM ( SELECT tags.ID, COUNT ( tag_name ) FROM tags JOIN tag_article_relationships ON tags.ID = tag_article_relationships.tag_id GROUP BY tags.ID ) f JOIN tags T ON T.ID = f.ID')
     end
 end

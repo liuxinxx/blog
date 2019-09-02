@@ -9,6 +9,8 @@ module V1
           requires :content, type: String
           requires :tags, type: String
           requires :source_title, type: String
+          requires :source_url, type: String
+          requires :is_original, type: Boolean
         end
         post do
           

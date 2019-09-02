@@ -33,7 +33,7 @@ module V1
             per_page: @articles.current_per_page,
             total_count: @articles.total_count
           }
-          return {result:1, message:'success' ,data: @list , page: page}
+          return {result:1, message:'success' ,data: @list   , page: page}
         end
 
         desc "查询文章是否存在"
