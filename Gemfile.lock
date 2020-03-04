@@ -178,7 +178,7 @@ GEM
       activerecord (>= 5.0)
     popper_js (1.14.5)
     public_suffix (3.1.1)
-    puma (3.12.1)
+    puma (3.12.4)
     rack (2.0.7)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -318,7 +318,7 @@ DEPENDENCIES
   meta-tags
   newrelic_rpm
   pg (~> 0.18)
-  puma (~> 3.7)
+  puma (~> 3.12)
   rails (~> 5.2)
   ransack
   sass-rails (~> 5.0)
